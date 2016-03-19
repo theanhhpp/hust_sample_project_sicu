@@ -1,7 +1,5 @@
 <div class="text-center">
-      <%=image_tag @post.image.url(:medium) %>
-    <p> caption </p>
-      <%=@post.caption %>
+      <%= render 'post', post: @post %>
     <% if @post.user.id == current_user.id %>
       <div class="text-center ">
         <%= link_to "Cancel", posts_path %>
