@@ -5,6 +5,9 @@
       <div class="user-name">
         <%= post.user.user_name %>
       </div>
+      <div class="time-ago">
+        <%= time_ago_in_words post.created_at %>
+      </div>
       </div>
     </div>
     <div class="image center-block text-center">
@@ -17,24 +20,26 @@
         </div>
         <%= post.caption %>
       </div>
+      <div id="comments_#{post.id}">
       <% if post.comments %>
-        <% post.comments.each do |comment| %>
-          <div class="comment">
-            <%= comment.user.user_name %>
-            <%= comment.content %>
-            <% if comment.user == current_user %>
-              <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } do %>
-                delete_comment
-              <%end%>
-            <%end%>
-          </div>
+        <div class="user-name">
+          <%= comment.user.user_name %>
+        </div>
+        <div class="comment-content">
+          <%= comment.content %>
+        </div>
+        <% if comment.user == current_user %>
+          <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+              <span class="glyphicon glyphicon-remove delete-comment" ></span>
+          <%end%>
         <%end%>
       <%end%>
+      </div>
     </div>
     <div class="comment-like-form row" >
       
-      <%= form_for [post, post.comments.new] do |f| %>
-        <%= f.text_field :content, placeholder: 'Add a comment...' %>
+      <%= form_for([post, post.comments.build], remote: true) do |f| %>
+        <%= f.text_field :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{post.id}" %>
       <%end%>
     </div>
   </div>
