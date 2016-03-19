@@ -19,19 +19,22 @@
                         <%= link_to "Trang chủ", root_path%>
                     </li>
                     <% if user_signed_in? %>
-                    <li>
-                        <a> Xin chào, <%=current_user.email%></a>
-                    </li>
-                    <li>
-                        <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete%>
-                    </li>
+                        <li>
+                            <a> Xin chào, <%=current_user.email%></a>
+                        </li>
+                        <li>
+                            <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete%>
+                        </li>
+                        <li>
+                            <%= link_to "New Post", new_post_path %>
+                        </li>
                     <% else %>
-                    <li>
-                        <%= link_to "Đăng ký", new_user_registration_path%>
-                    </li>
-                    <li>
-                        <%= link_to "Đăng nhập", new_user_session_path%>
-                    </li>
+                        <li>
+                            <%= link_to "Đăng ký", new_user_registration_path%>
+                        </li>
+                        <li>
+                            <%= link_to "Đăng nhập", new_user_session_path%>
+                        </li>
                     <% end %>
                 </ul>
             </div>
