@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5' 
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use devise for users management
 gem 'devise'
 # Use bootstrap for site design
+gem 'paperclip', '~> 4.2' #at the writing of this post 
+gem 'simple_form', '~> 3.1.0'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use font awsome for site design
 gem "font-awesome-rails"
