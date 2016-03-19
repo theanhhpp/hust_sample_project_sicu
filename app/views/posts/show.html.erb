@@ -2,13 +2,19 @@
       <%=image_tag @post.image.url(:medium) %>
     <p> caption </p>
       <%=@post.caption %>
-    <% if @post.user.id == current_user.id %>
-      <div class="text-center ">
-        <%= link_to "Cancel", posts_path %>
-        |
-        <%= link_to "Edit Post", edit_post_path(@post) %>
-      </div>
-    <% else %>
+    <% if user_signed_in? %>
+      <% if @post.user.id == current_user.id %>
+        <div class="text-center ">
+          <%= link_to "Cancel", posts_path %>
+          |
+          <%= link_to "Edit Post", edit_post_path(@post) %>
+        </div>
+      <% else %>
+        <div class="text-center ">
+          <%=link_to "Cancel", posts_path %>
+        </div>
+      <%end%>
+    <%else%>
       <div class="text-center ">
         <%=link_to "Cancel", posts_path %>
       </div>
