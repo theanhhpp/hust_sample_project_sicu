@@ -1086,9 +1086,14 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: rgba(74, 195, 102, 0.41);
 }
-input,
+input{
+    height: 29px;
+    font-size: 20px;
+   font-family: inherit;
+    border-radius: 5px;
+}
 button,
 select,
 textarea {
@@ -1102,7 +1107,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: #2196F3;
   text-decoration: underline;
 }
 a:focus {
@@ -1270,6 +1275,8 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
+  margin-left: 183px;
+  padding-top: 22px;
 }
 h3,
 .h3 {
