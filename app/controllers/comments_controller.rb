@@ -1,19 +1,19 @@
 class CommentsController < ApplicationController
 	before_action :set_post
-
 	def create
 	    @comment = @post.comments.build(comment_params)
 	    @comment.user_id = current_user.id
 
 	    if @comment.save
-	      respond_to do |format|
+	    	respond_to do |format|
 	        format.html { redirect_to root_path }
-	        format.js
+	        format.js {render inline: "location.reload();" }
 	      end
 	    else
 	      flash[:alert] = "Check the comment form, something went wrong."
 	      render root_path
 	    end
+
 	  end
 	def destroy
 	    @comment = @post.comments.find(params[:id])
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 	      @comment.delete
 	      respond_to do |format|
 	        format.html { redirect_to root_path }
-	        format.js
+	        format.js {render inline: "location.reload();" }
 	      end
 	    end
 	end

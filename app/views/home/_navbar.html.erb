@@ -23,10 +23,10 @@
                             <a> Xin chào, <%=current_user.email%></a>
                         </li>
                         <li>
-                            <%= link_to "Logout", destroy_user_session_path, method: :delete%>
+                            <%= link_to "New Post", new_post_path %>
                         </li>
                         <li>
-                            <%= link_to "New Post", new_post_path %>
+                            <%= link_to "Logout", destroy_user_session_path, method: :delete%>
                         </li>
                     <% else %>
                         <li>
