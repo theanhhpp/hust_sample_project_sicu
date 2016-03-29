@@ -24,8 +24,10 @@ class PostsController < ApplicationController
 	end
 
 	def update
+		 @post.created_at = Time.now
 		if @post.update(post_params)
 	      flash[:success] = "Post updated."
+
 	      redirect_to posts_path
 	    else
 	      flash.now[:alert] = "Update failed.  Please check the form."

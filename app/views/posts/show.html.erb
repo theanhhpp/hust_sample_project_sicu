@@ -6,7 +6,9 @@
         <%= link_to "Cancel", posts_path %>
         |
         <%= link_to "Edit Post", edit_post_path(@post) %>
-      </div>
+        |
+        <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
+      </div><br/>
     <% else %>
       <div class="text-center ">
         <%=link_to "Cancel", posts_path %>
@@ -18,6 +20,6 @@
     <%=@post.caption %>
     <div class="text-center ">
       <%=link_to "Cancel", posts_path %>
-    </div>
+    </div><br/>
   <%end%> 
 </div>

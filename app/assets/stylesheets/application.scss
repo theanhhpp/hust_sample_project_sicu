@@ -95,6 +95,7 @@
        color: #515151;
      }
    }
+
    margin-bottom: 7px;
    padding-top: 24px;
    padding-left: 24px;
@@ -105,6 +106,7 @@
  }
 
  .comment_content {
+   overflow: scroll;
    font-size: 15px;
    line-height: 18px;
    border: medium none;
