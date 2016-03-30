@@ -16,7 +16,7 @@ body {
 body:focus {
 outline: none; }
 #main{
-    background: url(image/background.jpg);
+    
     font-family: 'Roboto Slab',serif;
     color: white;
     width: 100%;
@@ -35,7 +35,6 @@ outline: none; }
     width: 1041px;
     margin: 40px auto;
     opacity: 1.5;
-    background: rgba(158, 158, 158, 0.1);
     min-height: 500px;
 }
 
@@ -213,7 +212,7 @@ a{
     display: inline-block;
 }
 .signin{
-   background: rgba(3, 169, 244, 0.12);
+
     width: 77px;
     height: 37px;
     color: white;
@@ -243,11 +242,11 @@ a{
     
 }
 .login-logout{
-    background: rgba(139, 195, 74, 0.14);
+    background: rgba(63, 81, 181, 0.35);
     width: 500px;
     margin-left:333px;
     border-radius: 39px;
-    color: #2196F3;
+    color: #23527c;
     height: 380px;
 }
 .field{

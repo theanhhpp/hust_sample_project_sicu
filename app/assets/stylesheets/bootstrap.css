@@ -1086,7 +1086,9 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: rgba(74, 195, 102, 0.41);
+  width: 100%;
+  background-image: image-url('nen3.jpg');
+  
 }
 input{
     height: 29px;
@@ -1102,12 +1104,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #23527c;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #2196F3;
+  color: #795548;
   text-decoration: underline;
 }
 a:focus {
