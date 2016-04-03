@@ -1,32 +1,21 @@
-<div class="posts-wrapper">
-  <div class="post">
-    <div class="post-head">
-      <div class="thumb-img">
-      <div class="user-name">
-        <b><%= post.user.user_name %></b>
-      </div>
-      <div class="time-ago">
+<div class="row">
+    <div class="thumbnail" style="padding: 10px;">
+        <h4><b><%= post.user.user_name %></b></h4>
         <%= time_ago_in_words post.created_at %>
-      </div>
-      </div>
-    </div>
-    <div class="image center-block text-center">
-      <%=image_tag @post.image.url(:medium) %>
-    </div>
-    <div class="post-bottom">
-      <div class="caption">
-        <%= post.caption %>
-      </div>
-      <div id="comments_#{post.id}">
-        <% if post.comments %>
-          <%= render post.comments, post: post %>
+        <hr>
+        <div class="caption">
+            <%= post.caption %>
+        </div>
+        <%=image_tag @post.image.url(:medium) %>
+        <hr>
+        <div id="comments_#{post.id}">
+            <% if post.comments %>
+                <%= render post.comments, post: post %>
+            <%end%>
+        </div>
+        <hr>
+        <%= form_for([post, post.comments.build], remote: true) do |f| %>
+            <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control', id: "comment_content_#{post.id}" %>
         <%end%>
-      </div>
     </div>
-    <div class="comment-like-form row" >
-      <%= form_for([post, post.comments.build], remote: true) do |f| %>
-        <%= f.text_field :content, placeholder: 'Add a comment...', class: 'form-control', id: "comment_content_#{post.id}" %>
-      <%end%>
-    </div>
-  </div>
 </div>
