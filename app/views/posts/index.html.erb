@@ -1,9 +1,10 @@
-
+<div align="center">
 <% @posts.each do |post| %>
-	<%= post.user.user_name %>
+	<b><%= post.user.user_name %></b>
 	<div class="time-ago">
   		<%= time_ago_in_words post.created_at %>
 	</div>
-	<%=link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %> <br/>
-	<%=post.caption %><br/>
+	<%=link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+	<%=post.caption %><br>
 <%end%>
+</div>
