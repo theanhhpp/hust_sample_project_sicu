@@ -3,7 +3,7 @@
     <div class="post-head">
       <div class="thumb-img">
       <div class="user-name">
-        <%= post.user.user_name %>
+        <b><%= post.user.user_name %></b>
       </div>
       <div class="time-ago">
         <%= time_ago_in_words post.created_at %>
@@ -15,9 +15,6 @@
     </div>
     <div class="post-bottom">
       <div class="caption">
-        <div class="user-name">
-          <%= post.user.user_name %>
-        </div>
         <%= post.caption %>
       </div>
       <div id="comments_#{post.id}">
@@ -28,7 +25,7 @@
     </div>
     <div class="comment-like-form row" >
       <%= form_for([post, post.comments.build], remote: true) do |f| %>
-        <%= f.text_field :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{post.id}" %>
+        <%= f.text_field :content, placeholder: 'Add a comment...', class: 'form-control', id: "comment_content_#{post.id}" %>
       <%end%>
     </div>
   </div>
