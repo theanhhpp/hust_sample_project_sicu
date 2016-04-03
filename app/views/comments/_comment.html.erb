@@ -1,7 +1,7 @@
 <div id="comment" class="row">
 	<div class="col-md-11">
 		<div class="user-name ">
-			<%= comment.user.user_name %>
+			<%= link_to comment.user.user_name, profile_path(comment.user.user_name) %>
 		</div>
 		<div class="comment-content ">
 			<%= comment.content %>

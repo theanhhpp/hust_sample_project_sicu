@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 	def create  
  		@post = current_user.posts.build(post_params)
 	    if @post.save
-	      redirect_to posts_path
+	      redirect_to profile_path(current_user.user_name)
 	    else
 	      flash[:alert] = "Your new post couldn't be created!  Please check the form."
 	      render :new
@@ -26,9 +26,9 @@ class PostsController < ApplicationController
 	def update
 		 @post.created_at = Time.now
 		if @post.update(post_params)
-	      flash[:success] = "Post updated."
+	      #flash[:success] = "Post updated."
 
-	      redirect_to posts_path
+	      redirect_to profile_path(current_user.user_name)
 	    else
 	      flash.now[:alert] = "Update failed.  Please check the form."
 	      render :edit
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 	end
 	def destroy  
 	  @post.destroy
-      redirect_to root_path
+      redirect_to profile_path(current_user.user_name)
 	end 
 
 	private
