@@ -1,30 +1,43 @@
-<div class="posts-wrapper">
-  <div class="row profile-header">
-    <div class="col-md-6">
-      <div class="img-circle">
-        <%= profile_avatar_select(@user) %>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="user-name-and-follow">
-        <h3 class="profile-user-name">
-          <%= @user.user_name %>
-        </h3>
-        <span>
-          <% if @user == current_user %>
-            <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn edit-button' %>
-          <%end%>
-        </span>
-      </div>
-      <p class="profile-info">
-        <%= @user.info %>
-      </p>
-      <div class="user-statistics">
-        <p><%= pluralize @user.posts.count, 'post' %> </p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="row">
+	<div class="coverphoto">
+		<div class="row">
+			<div class="avarta col-sm-3">
+				<div class="img-circle">
+		        	<%= profile_avatar_select(@user) %>
+		      	</div>
+			</div>
+			<div class="user-info">
+				<div class="username">
+					<%= @user.user_name %>
+				</div>
+				<div class="button">
+					<span>
+			          <% if @user == current_user %>
+			            <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn edit-button' %>
+			          <%else%>
+			          	<%= link_to 'Follow', edit_profile_path(@user.user_name),class: 'btn edit-button' %>
+			          <%end%>
+			        </span>
+				</div>
+				<div class="info">
+					<%= @user.info %>
+				</div>
+				<div class="count-posts">
+					<p><%= pluralize @user.posts.count, 'post' %> </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="my-posts" >
+	Kho anh
+		<ul id="og-grid" class="og-grid">
+			<% @posts.each do |post| %>
+				<li>
+					<%=link_to (image_tag post.image.url(:medium), class:'img'),post_path(post) %>
+	            </li>
+			<%end%>
+		</ul>
+	</div>
 </div>
-<% @posts.each do |post| %>
-	<%= render 'posts/post', post: post %>
-<%end%>
+</div>

@@ -157,3 +157,46 @@
 .profile-info {
   margin-top: 20px;
 }
+
+.coverphoto{ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 360px;
+  background-image: url("coverphoto.jpg");
+}
+.my-posts{
+  margin: 300px auto;
+  margin-left: 0;
+  margin-right: 0;
+  background: #ddd;
+}
+.avarta{
+  margin: 160px auto;
+  margin-left: 100px;
+}
+.user-info{
+  margin: 160px auto;
+}
+
+.og-grid {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.og-grid li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  vertical-align: top;
+}
+.img {
+  outline: none;
+  display: block;
+  position: relative;
+  width: 550px;
+  height: 300px;
+}
