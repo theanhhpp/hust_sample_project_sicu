@@ -13,8 +13,8 @@
         <hr>
         <div>
             <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
-        |   <%= link_to "up", vote_post_path(post, type: "up"), method: "post",class: "votez" %>
-        |   <%= link_to "down", vote_post_path(post, type: "down"), method: "post",class: 'votez' %>
+        |   <%= link_to "", vote_post_path(post, type: "up"), method: :post,:class => "fa fa-thumbs-up fa-2x" %>
+        |   <%= link_to "", vote_post_path(post, type: "down"), method: :post,:class => "fa fa-thumbs-down fa-2x" %>
         </div>
 
         <div id="comments_#{post.id}">
