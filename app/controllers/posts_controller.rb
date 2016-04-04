@@ -3,6 +3,14 @@ class PostsController < ApplicationController
 	 
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	before_action :owned_post, only: [:edit, :update, :destroy]
+	def vote
+	  value = params[:type] == "up" ? 1 : -1
+	  @post = Post.find(params[:id])
+	  @post.add_or_update_evaluation(:votes, value, current_user)
+	  redirect_to :back, notice: "Thank you for voting"
+	end
+
+
 	def index  
 	  @posts = Post.all.order('created_at DESC').page params[:page]
 	end 
@@ -42,7 +50,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-	    params.require(:post).permit(:image, :caption)
+	    params.require(:post).permit(:image, :caption,:tag_list)
 	  end
 
 	def set_post
@@ -54,5 +62,7 @@ class PostsController < ApplicationController
 	    flash[:alert] = "That post doesn't belong to you!"
 	    redirect_to root_path
 	  end
-	end 
+	end
+	
+
 end

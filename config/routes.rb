@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   patch ':user_name/edit', to: 'profiles#update', as: :update_profile
 
    
+  get 'tags/:tag', to: 'posts#index', as: :tag
+  
   resources :posts do  
     resources :comments
+    member { post :vote }
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

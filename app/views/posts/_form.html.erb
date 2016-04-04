@@ -7,7 +7,12 @@
             <%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %>
             <h4>Caption</h4>
             <%= f.text_area :caption, label: false, class: 'form-control', placeholder: 'Add your caption' %>
+            <h4>Add Tag</h4>
+            <%= f.label :tags, "Tags (separated by commas)" %>
+             <%= f.text_field :tag_list, class: "form-control" %>
+
             <%= f.button :submit, class: 'btn-success btn-block' %>
+
         <% end %>
     </div>
 </div>
