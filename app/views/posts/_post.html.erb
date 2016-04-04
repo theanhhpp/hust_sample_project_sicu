@@ -8,6 +8,12 @@
         </div>
         <%=image_tag @post.image.url(:medium) %>
         <hr>
+        <div>
+            <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
+        |   <%= link_to "up", vote_post_path(post, type: "up"), method: "post",class: "votez" %>
+        |   <%= link_to "down", vote_post_path(post, type: "down"), method: "post",class: 'votez' %>
+        </div>
+
         <div id="comments_#{post.id}">
             <% if post.comments %>
                 <%= render post.comments, post: post %>

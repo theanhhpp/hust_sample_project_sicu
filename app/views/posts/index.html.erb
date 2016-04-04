@@ -6,6 +6,24 @@
         <hr>
         <div class="caption"><%=post.caption %></div>
     	<%=link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+    		
+    	 
     </div>
+    	<div>
+    		TAGS:
+    		<% post.tags.any? %>
+     		<% post.tags.each do |tag| %>
+     		<span class="label label-teal">
+        	<%= link_to tag.name, tag_path(tag.name) %>
+     		</span>  
+     	</div>
+    	<div>
+    	 	<%= pluralize post.reputation_for(:votes).to_i, "vote" %>
+  		|	<%= link_to "up", vote_post_path(post, type: "up"), method: "post" %>
+  		|	<%= link_to "down", vote_post_path(post, type: "down"), method: "post" %>
+  		</div>
+<% end %>
+
 <%end%>
+
 </div>

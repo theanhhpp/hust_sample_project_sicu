@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
-
+  get 'tags/:tag', to: 'posts#index', as: :tag
   devise_for :users, :controllers => { registrations: 'registrations' }  
   resources :posts do  
     resources :comments
+    member { post :vote }
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
