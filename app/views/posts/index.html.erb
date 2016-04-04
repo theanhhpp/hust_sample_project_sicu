@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-=======
+
 <div align="center">
->>>>>>> 52d87fc027da7c40ccff60ff28888932971d68a4
 <% @posts.each do |post| %>
-	<b><%= post.user.user_name %></b>
-	<div class="time-ago">
-  		<%= time_ago_in_words post.created_at %>
-	</div>
-	<%=link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
-	<%=post.caption %><br>
+    <div class="thumbnail">
+    	<h4><b><%= post.user.user_name %></b></h4>
+    	<%= time_ago_in_words post.created_at %>
+        <hr>
+        <div class="caption"><%=post.caption %></div>
+    	<%=link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+    </div>
 <%end%>
 </div>
