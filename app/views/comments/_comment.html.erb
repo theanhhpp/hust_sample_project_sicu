@@ -1,16 +1,12 @@
 <div id="comment" class="row">
-	<div class="col-md-11">
-		<div class="user-name ">
-			<%= comment.user.user_name %>
-		</div>
-		<div class="comment-content ">
-			<%= comment.content %>
-		</div>
-	</div>
+	<div class="col-md-11" align="left">
+		<b><%= comment.user.user_name %></b>
+		<%= comment.content %>
+    </div>
 	<div class="col-md-1">
 		<% if comment.user == current_user %>
 			<%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
-		  		<span class="glyphicon glyphicon-remove " ></span>
+		  		<span class="glyphicon glyphicon-remove"></span>
 			<%end%>
 		<%end%>
 	</div>

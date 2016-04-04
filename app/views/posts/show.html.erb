@@ -1,25 +1,16 @@
-<div>   
+<div class="center">
   <% if user_signed_in? %>
     <%= render 'post', post: @post %>
     <% if @post.user.id == current_user.id %>
-      <div class="text-center ">
-        <%= link_to "Cancel", posts_path %>
-        |
-        <%= link_to "Edit Post", edit_post_path(@post) %>
-        |
-        <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
-      </div><br/>
+        <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary" %>
+        <%= link_to "Delete post", post_path(@post), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
+        <%= link_to "Back", posts_path, class: "btn btn-default" %>
     <% else %>
-      <div class="text-center ">
-        <%=link_to "Cancel", posts_path %>
-      </div>
-    <%end%>
+        <%= link_to "Back", posts_path, class: "btn btn-default" %>
+  <%end%>
   <%else%>
-    <%=image_tag @post.image.url(:medium) %>
-    <p> caption </p>
-    <%=@post.caption %>
-    <div class="text-center ">
-      <%=link_to "Cancel", posts_path %>
-    </div><br/>
-  <%end%> 
+    <%= image_tag @post.image.url(:medium) %>
+    <%= @post.caption %>
+    <%= link_to "Back", posts_path, class: "btn btn-default" %>
+  <%end%>
 </div>
