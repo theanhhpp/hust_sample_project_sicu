@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts', to: 'posts#index' , as: :posts   #get all post
+
   get 'profiles/show'
   devise_for :users, :controllers => { registrations: 'registrations' } 
   root 'home#index'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
 
    
   get 'tags/:tag', to: 'posts#index', as: :tag
+
   
   resources :posts do  
     resources :comments

@@ -99,3 +99,24 @@ a{
  .header-menu li:hover ul ul	{
   display:block;
   }
+/* posts image */
+.home-post {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.home-post li {
+  display: inline-block;
+  margin: 0 3px 5px 0;
+  vertical-align: top;
+}
+.image {
+  outline: none;
+  display: block;
+  position: relative;
+  width: 352px;
+  height: 247px;
+}

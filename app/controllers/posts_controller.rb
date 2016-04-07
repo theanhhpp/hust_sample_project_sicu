@@ -20,13 +20,14 @@ class PostsController < ApplicationController
 	def create  
  		@post = current_user.posts.build(post_params)
 	    if @post.save
-	      redirect_to profile_path(current_user.user_name)
+	      redirect_to post_path(@post)
 	    else
 	      flash[:alert] = "Your new post couldn't be created!  Please check the form."
 	      render :new
 	    end
 	end
-	def show  
+	def show 
+		@posts = Post.all.order('created_at DESC') 
 	end
 	def edit
 	end
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
 		if @post.update(post_params)
 	      #flash[:success] = "Post updated."
 
-	      redirect_to profile_path(current_user.user_name)
+	      redirect_to post_path(@post)
 	    else
 	      flash.now[:alert] = "Update failed.  Please check the form."
 	      render :edit

@@ -9,7 +9,7 @@
         <div class="caption">
             <%= post.caption %>
         </div>
-        <%=image_tag @post.image.url(:medium) %>
+        <%=image_tag @post.image.url %>
         <hr>
         <div>
             <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
