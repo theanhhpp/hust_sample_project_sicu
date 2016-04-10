@@ -1,43 +1,29 @@
-<div class="container">
-<div class="row">
-	<div class="coverphoto">
-		<div class="row">
-			<div class="avarta col-sm-3">
-				<div class="img-circle">
-		        	<%= profile_avatar_select(@user) %>
-		      	</div>
-			</div>
-			<div class="user-info">
-				<div class="username">
-					<%= @user.user_name %>
-				</div>
-				<div class="button">
-					<span>
-			          <% if @user == current_user %>
-			            <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn edit-button' %>
-			          <%else%>
-			          	<%= link_to 'Follow', edit_profile_path(@user.user_name),class: 'btn edit-button' %>
-			          <%end%>
-			        </span>
-				</div>
-				<div class="info">
-					<%= @user.info %>
-				</div>
-				<div class="count-posts">
-					<p><%= pluralize @user.posts.count, 'post' %> </p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="my-posts" >
-	Kho anh
-		<ul id="og-grid" class="og-grid">
-			<% @posts.each do |post| %>
-				<li>
-					<%=link_to (image_tag post.image.url(:medium), class:'img'),post_path(post) %>
-	            </li>
-			<%end%>
-		</ul>
-	</div>
+<div class="jumbotron cover-photo">
+    <div class="avatar-inside-cover">
+    	<%= profile_avatar_select(@user) %>
+    </div>
+    <div class="info-inside-cover">
+        <div class="user-name">
+            <%= @user.user_name %>
+        </div>
+        <p><span class="label label-info" style="opacity: 0.9;"><%= @user.info %></span></p>
+    </div>
+    <div class="edit-btn-inside-cover">
+        <% if @user == current_user %>
+            <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn btn-primary form-margin', style: 'opacity: 0.9;' %>
+        <%else%>
+            <%= link_to 'Follow', edit_profile_path(@user.user_name),class: 'btn btn-primary form-margin', style: 'opacity: 0.9;' %>
+        <%end%>
+        <p><%= pluralize @user.posts.count, 'post' %></p>
+    </div>
 </div>
+<hr>
+<div class="container">
+    <div class="row">
+        <% @posts.each do |post| %>
+            <div class="col-xs-6 col-md-4 col-lg-3">
+        		<%=link_to (image_tag post.image.url(:medium), class:'thumbnail adjust-image'),post_path(post) %>
+            </div>
+        <%end%>
+    </div>
 </div>
