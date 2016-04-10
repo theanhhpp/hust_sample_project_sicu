@@ -1,5 +1,6 @@
 .center {
     text-align: center;
+    margin-top: 30px;
 }
 
 .form-margin {
@@ -8,14 +9,6 @@
 
 .user-name{
   color: lightblue;
-}
-
-.glyphicon {
-    color: lightblue;
-}
-
-.glyphicon:hover {
-    color: red;
 }
 
 .cover-photo {
@@ -28,8 +21,8 @@
 }
 
 .adjust-image {
-    width: 280px;
-    height: 280px;
+    width: 380px;
+    height: 380px;
     overflow: hidden;
     object-fit: cover;
     margin: 5px;
@@ -38,6 +31,7 @@
 .avatar {
     height: 170px;
     width: 170px;
+    object-fit: cover;
 }
 
 .avatar-inside-cover {
@@ -59,7 +53,30 @@
 }
 
 .user-name {
-    font-family: Tahoma, Geneva, sans-serif;
     font-size: 32px;
     color: white;
+}
+
+.comment-hover:hover .glyphicon-remove {
+    display: block;
+}
+
+.comment-hover:hover {
+    background-color: rgb(230,230,230);
+}
+
+.glyphicon-remove {
+    display: none;
+}
+
+.glyphicon-remove:hover {
+    color: red;
+}
+
+.glyphicon-thumbs-up:hover {
+    color: green;
+}
+
+.glyphicon-thumbs-down:hover {
+    color: green;
 }
