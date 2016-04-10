@@ -1,31 +1,32 @@
+<div class="container center">
+    <div class="row">
+        <div class="thumbnail" style="padding: 10px">
+            <div class="user-name">
+              <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name) %></b></h4>
+            </div>
+            <%= time_ago_in_words post.created_at %>
+            <hr>
+            <div class="caption">
+                <%= post.caption %>
+            </div>
+            <%=image_tag @post.image.url %>
+            <hr>
+            <div>
+                <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
+            |   <%= link_to "", vote_post_path(post, type: "up"), method: :post,:class => "fa fa-thumbs-up fa-2x" %>
+            |   <%= link_to "", vote_post_path(post, type: "down"), method: :post,:class => "fa fa-thumbs-down fa-2x" %>
+            </div>
 
-<div class="row">
-    <div class="thumbnail" style="padding: 10px;">
-        <div class="user-name">
-          <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name) %></b></h4>
-        </div>
-        <%= time_ago_in_words post.created_at %>
-        <hr>
-        <div class="caption">
-            <%= post.caption %>
-        </div>
-        <%=image_tag @post.image.url %>
-        <hr>
-        <div>
-            <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
-        |   <%= link_to "", vote_post_path(post, type: "up"), method: :post,:class => "fa fa-thumbs-up fa-2x" %>
-        |   <%= link_to "", vote_post_path(post, type: "down"), method: :post,:class => "fa fa-thumbs-down fa-2x" %>
-        </div>
-
-        <div id="comments_#{post.id}">
-            <% if post.comments %>
-                <%= render post.comments, post: post %>
+            <div id="comments_#{post.id}">
+                <% if post.comments %>
+                    <%= render post.comments, post: post %>
+                <%end%>
+            </div>
+            <hr>
+            <%= form_for([post, post.comments.build], remote: true) do |f| %>
+                <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
+            <%= f.button :submit, class: 'btn btn-success btn-block' %>
             <%end%>
         </div>
-        <hr>
-        <%= form_for([post, post.comments.build], remote: true) do |f| %>
-            <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control', id: "comment_content_#{post.id}" %>
-        <%= f.button :submit, class: 'btn-success btn-block' %>
-        <%end%>
     </div>
 </div>

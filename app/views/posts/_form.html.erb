@@ -1,18 +1,20 @@
-<div class="center">
-    <div class="thumbnail" style="padding: 10px;">
-        <%= form_image_select(@post) %>
-        <%= simple_form_for @post, html: { multipart: true } do |f| %>
-            <%= f.error_notification  %>
-            <h4> Upload an image (this is required): </h4>
-            <%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %>
-            <h4>Caption</h4>
-            <%= f.text_area :caption, label: false, class: 'form-control', placeholder: 'Add your caption' %>
-            <h4>Add Tag</h4>
-            <%= f.label :tags, "Tags (separated by commas)" %>
-             <%= f.text_field :tag_list, class: "form-control" %>
+<div class="container center">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="thumbnail" style="padding: 10px;">
+            <%= form_image_select(@post) %>
+            <%= simple_form_for @post, html: { multipart: true } do |f| %>
+                <%= f.error_notification  %>
+                <h4> Upload an image (this is required): </h4>
+                <%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %>
+                <h4>Caption</h4>
+                <%= f.text_area :caption, label: false, class: 'form-control form-margin', placeholder: 'Add your caption' %>
+                <h4>Add Tag</h4>
+                <%= f.label :tags, "Tags (separated by commas)" %>
+                 <%= f.text_field :tag_list, class: "form-control form-margin" %>
 
-            <%= f.button :submit, class: 'btn-success btn-block' %>
+                <%= f.button :submit, class: 'btn btn-success btn-block' %>
 
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>

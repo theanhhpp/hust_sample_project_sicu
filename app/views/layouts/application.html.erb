@@ -2,18 +2,18 @@
 <html>
 <head>
   <title>SICU</title>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
- <%= render 'home/navbar'%>
- <div class="container">
-    <%flash.each do |name, msg|%>
-      <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
-    <%end%>
-<%= yield %>
+    <%= render 'home/navbar'%>
+    <div class="container-fluid">
+        <%flash.each do |name, msg|%>
+        <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+        <%end%>
+    </div>
+    <%= yield %>
 
 </body>
 </html>

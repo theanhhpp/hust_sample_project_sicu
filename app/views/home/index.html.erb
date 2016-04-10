@@ -1,23 +1,19 @@
-<div >
+<div class="container">
     <ul class="home-post">
     <% @posts = Post.all.order('created_at DESC')%>
     <% @posts.each do |post| %>
         <li>
             <div class="thumbnails">
-            <%=link_to (image_tag post.image.url, class:'image'),post_path(post) %>
-            <div class="opacity">
-                <div class="post-caption">
+                <%=link_to (image_tag post.image.url, class:'image img-responsive'),post_path(post) %>
+                <div class="opacity">
+                    <h5><b><%= post.user.user_name%></b></h5>
                     <%= post.caption %>
                 </div>
-                <div class="post-user">
-                    <%= post.user.user_name%>
-                </div>
-            </div>
             </div>
         </li>
 
     <%end%>
-    </ul>   
+    </ul>
 </div>
 <!-- jQuery -->
     <script src="js/jquery.js"></script>
