@@ -1,6 +1,6 @@
 .center {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .form-margin {
@@ -79,4 +79,23 @@
 
 .glyphicon-thumbs-down:hover {
     color: green;
+}
+
+.polaroid {
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+.polaroid:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.image-info {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: auto;
 }
