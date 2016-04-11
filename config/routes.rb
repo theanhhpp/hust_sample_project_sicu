@@ -14,11 +14,17 @@ Rails.application.routes.draw do
    
   get 'tags/:tag', to: 'posts#index', as: :tag
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   
   resources :posts do  
     resources :comments
     member { post :vote }
   end
+  resources :relationships,       only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

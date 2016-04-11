@@ -6,8 +6,10 @@ class PostsController < ApplicationController
 	def vote
 	  value = params[:type] == "up" ? 1 : -1
 	  @post = Post.find(params[:id])
-	  @post.add_or_update_evaluation(:votes, value, current_user)
-	  redirect_to :back, notice: "Thank you for voting"
+	  if @post.add_or_update_evaluation(:votes, value, current_user)
+	  	create_notification @post
+	  	redirect_to :back, notice: "Thank you for voting"
+	  end
 	end
 
 
@@ -50,6 +52,14 @@ class PostsController < ApplicationController
 
 	private
 
+	def create_notification(post)  
+	    return if post.user.id == current_user.id 
+	    Notification.create(user_id: post.user.id,
+	                        notified_by_id: current_user.id,
+	                        post_id: post.id,
+	                        identifier: post.id,
+	                        notice_type: 'vot')
+	end
 	def post_params
 	    params.require(:post).permit(:image, :caption,:tag_list)
 	  end
