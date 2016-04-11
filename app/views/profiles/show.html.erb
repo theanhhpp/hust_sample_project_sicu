@@ -12,9 +12,9 @@
         <% if @user == current_user %>
             <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn btn-primary form-margin', style: 'opacity: 0.8;' %>
         <%else%>
-            <%= link_to 'Follow', edit_profile_path(@user.user_name),class: 'btn btn-primary form-margin', style: 'opacity: 0.8;' %>
+        <%= render 'follow_form' if user_signed_in? %>
         <%end%>
-        <p><%= pluralize @user.posts.count, 'post' %></p>
+        <p><%= pluralize @user.posts.count, 'post' %>|<%= @user.following.count %> following|<%= @user.followers.count %> followers</p>
     </div>
 </div>
 <hr>
