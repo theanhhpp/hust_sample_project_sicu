@@ -1,22 +1,14 @@
-<div class="container">
-    <ul class="home-post">
-    <% @posts = Post.all.order('created_at DESC')%>
-    <% @posts.each do |post| %>
-        <li>
-            <div class="thumbnails">
-                <%=link_to (image_tag post.image.url, class:'image img-responsive'),post_path(post) %>
-                <div class="opacity">
+<div class="container center">
+    <div class="col-xs-8 col-xs-offset-2">
+        <% @posts = Post.all.order('created_at DESC')%>
+        <% @posts.each do |post| %>
+            <div class="polaroid">
+                <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
+                <div class="image-info">
                     <h5><b><%= post.user.user_name%></b></h5>
                     <%= post.caption %>
                 </div>
             </div>
-        </li>
-
-    <%end%>
-    </ul>
+        <%end%>
+    </div>
 </div>
-<!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>

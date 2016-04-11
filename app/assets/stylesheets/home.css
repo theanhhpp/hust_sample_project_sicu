@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html {
-	font-family:sans-serif;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	-webkit-text-size-adjust:100%;
 	-ms-text-size-adjust:100%
 }
 
 body {
-    padding-top: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     background-color: lightblue;
 }
 
@@ -38,11 +39,7 @@ body {
     margin-top : 30px;
     margin-left: 20px;
 }
-a{
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-}
+
 .header-menu ul li{
     list-style: none;
     display: inline;
