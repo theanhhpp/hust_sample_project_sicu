@@ -1,15 +1,13 @@
-<div class="container">
-    <div id="comment" class="row">
-    	<div class="col-md-11" align="left">
-    		<b><%= link_to comment.user.user_name, profile_path(comment.user.user_name) %></b>
-    		<%= comment.content %>
-        </div>
-    	<div class="col-md-1">
-    		<% if comment.user == current_user %>
-    			<%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
-    		  		<span class="glyphicon glyphicon-remove"></span>
-    			<%end%>
-    		<%end%>
-    	</div>
+<div class="row comment-hover">
+	<div class="col-xs-11" align="left">
+		<b><%= link_to comment.user.user_name, profile_path(comment.user.user_name), style: 'text-decoration:none;' %></b>
+		<%= comment.content %>
     </div>
+	<div class="col-xs-1">
+		<% if comment.user == current_user %>
+			<%= link_to post_comment_path(post, comment), style: 'text-decoration:none;', method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+		  		<span class="glyphicon glyphicon-remove"></span>
+			<%end%>
+		<%end%>
+	</div>
 </div>

@@ -5,7 +5,7 @@
             <%= simple_form_for @post, html: { multipart: true } do |f| %>
                 <%= f.error_notification  %>
                 <h4> Upload an image (this is required): </h4>
-                <%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %>
+                <div style="margin: 15px 230px;"><%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %></div>
                 <h4>Caption</h4>
                 <%= f.text_area :caption, label: false, class: 'form-control form-margin', placeholder: 'Add your caption' %>
                 <h4>Add Tag</h4>

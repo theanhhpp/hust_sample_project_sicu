@@ -1,32 +1,42 @@
 <div class="container center">
     <div class="row">
-        <div class="thumbnail" style="padding: 10px">
-            <div class="user-name">
-              <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name) %></b></h4>
-            </div>
-            <%= time_ago_in_words post.created_at %>
-            <hr>
-            <div class="caption">
-                <%= post.caption %>
-            </div>
-            <%=image_tag @post.image.url %>
-            <hr>
-            <div>
-                <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
-            |   <%= link_to "", vote_post_path(post, type: "up"), method: :post,:class => "fa fa-thumbs-up fa-2x" %>
-            |   <%= link_to "", vote_post_path(post, type: "down"), method: :post,:class => "fa fa-thumbs-down fa-2x" %>
-            </div>
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="thumbnail">
+                <div class="user-name">
+                  <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style: 'text-decoration:none;' %></b></h4>
+                </div>
+                <%= time_ago_in_words post.created_at %>
+                <hr>
+                <h4><%= post.caption %></h4>
+                <%=image_tag @post.image.url %>
+                <hr>
+                <div>
+                    <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
+                |   <%= link_to "", vote_post_path(post, type: "up"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-up fa-lg', method: :post %>
+                |   <%= link_to "", vote_post_path(post, type: "down"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-down fa-lg', method: :post %>
+                </div>
 
-            <div id="comments_#{post.id}">
-                <% if post.comments %>
-                    <%= render post.comments, post: post %>
-                <%end%>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div id="comments_#{post.id}">
+                            <% if post.comments %>
+                                    <%= render post.comments, post: post %>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <%= form_for([post, post.comments.build], remote: true) do |f| %>
+                    <div class="col-xs-8 col-xs-offset-1">
+                        <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
+                    </div>
+                    <div class="col-xs-2">
+                        <%= f.submit "Comment", class: 'btn btn-success btn-lg btn-block' %>
+                    </div>
+                    <%end%>
+                </div>
             </div>
-            <hr>
-            <%= form_for([post, post.comments.build], remote: true) do |f| %>
-                <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
-            <%= f.button :submit, class: 'btn btn-success btn-block' %>
-            <%end%>
         </div>
     </div>
 </div>
