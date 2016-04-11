@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'notifications/:id/link_through', to: 'notifications#link_through',
+                                        as: :link_through
+
   get 'posts', to: 'posts#index' , as: :posts   #get all post
 
   get 'profiles/show'

@@ -26,6 +26,9 @@
                         <li>
                             <%= link_to "", destroy_user_session_path, method: :delete, :class => "fa fa-sign-out fa-2x" %>
                         </li>
+                        <li>
+                            <%= render 'notifications/notification_dropdown' %>
+                        </li>
                     <% else %>
                         <li>
                             <%= link_to "Sign up", new_user_registration_path%>

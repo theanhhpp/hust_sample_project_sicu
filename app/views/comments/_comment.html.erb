@@ -4,7 +4,7 @@
 		<%= comment.content %>
     </div>
 	<div class="col-xs-1">
-		<% if comment.user == current_user %>
+		<% if comment.user == current_user || post.user == current_user%>
 			<%= link_to post_comment_path(post, comment), style: 'text-decoration:none;', method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
 		  		<span class="glyphicon glyphicon-remove"></span>
 			<%end%>
