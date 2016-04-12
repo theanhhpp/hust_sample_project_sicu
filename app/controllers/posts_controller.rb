@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	before_action :owned_post, only: [:edit, :update, :destroy]
 	def vote
-	  value = params[:type] == "up" ? 1 : -1
+	  value = params[:type] == "up" ? 1 : 0
 	  @post = Post.find(params[:id])
 	  if @post.add_or_update_evaluation(:votes, value, current_user)
 	  	create_notification @post
