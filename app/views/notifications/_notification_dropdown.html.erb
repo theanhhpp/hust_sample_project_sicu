@@ -1,9 +1,8 @@
 <div class="dropdown">
-    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+    <a id="dLabel" role="button" data-toggle="dropdown" >
         <%= current_user.notifications.where(read: false).count %>
         <i class="glyphicon glyphicon-bell"></i>
     </a>
-
     <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
     
         <div class="notification-heading"><h4 class="menu-title">Notifications</h4>

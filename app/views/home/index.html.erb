@@ -1,14 +1,72 @@
-<div class="container center">
-    <div class="col-xs-8 col-xs-offset-2">
-        <% @posts = Post.all.order('created_at DESC')%>
-        <% @posts.each do |post| %>
-            <div class="polaroid">
-                <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
-                <div class="image-info">
-                    <h5><b><%= post.user.user_name%></b></h5>
-                    <%= post.caption %>
+
+<div class="main">
+    <div class="header">
+     <script>
+        $(function () {
+          $("#slider").responsiveSlides({
+            auto:true,
+            nav: false,
+            speed: 500,
+            namespace: "callbacks",
+            pager:true,
+          });
+        });
+        
+       </script>
+     <div class="slider">
+          <div class="callbacks_container">
+              <ul class="rslides" id="slider">
+                
+                    <div class="slid banner1">
+                          <div class="caption1">
+                                <h3>Do Everything To Be The Firstss</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pellentesque ex. Morbi iaculis mi in varius auctor. Nullam feugiat erat ex, eu vehicula velit efficitur non.</p>
+                                <a href="index.html#about" class="button">read more</a>
+                          </div>
+                    </div>
+                
+                
+                     <div class="slid banner2"> 
+                          <div class="caption1">
+                                <h3>Do Everything To Be The Firstss</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pellentesque ex. Morbi iaculis mi in varius auctor. Nullam feugiat erat ex, eu vehicula velit efficitur non.</p>
+                                <a href="index.html#about" class="button">read more</a>
+                          </div>
+                     </div>
+                
+                
+                    <div class="slid banner3">  
+                        <div class="caption1">
+                            <h3>Do Everything To Be The Firstss</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pellentesque ex. Morbi iaculis mi in varius auctor. Nullam feugiat erat ex, eu vehicula velit efficitur non.</p>
+                            <a href="index.html#about" class="button">read more</a>
+                        </div>
+                    </div>
+                
+              </ul>
+         </div>
+        </div>
+     </div>           
+    <section id="about">
+        <div class="specials-section" >
+            <div class="container">
+                <div class="specials-grids">                        
+                    <div class="specials1">
+                        <h3>About</h3>
+                        
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-        <%end%>
-    </div>
+        </div>
+    </section>
 </div>
+<div class="footer">
+    <!-- footer_bottom -->
+    <div class="footer_bottom container">
+        <div class="copyright" data-animated="fadeInUp">&copy; 2016 Sicu. Design by sicu team</div>               
+        <div class="clear"></div>
+    </div>
+    <!-- //footer_bottom -->
+</div>
+<!--//footer--> 

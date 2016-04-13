@@ -17,6 +17,9 @@
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
                         <li>
+                            <%= link_to "All Posts", posts_path%>
+                        </li>
+                        <li>
                             <%= link_to "Hi, "+current_user.user_name, profile_path(current_user.user_name) %>
                         </li>
                         <li>
@@ -30,6 +33,9 @@
                             <%= render 'notifications/notification_dropdown' %>
                         </li>
                     <% else %>
+                        <li>
+                            <%= link_to "All Posts", posts_path%>
+                        </li>
                         <li>
                             <%= link_to "Sign up", new_user_registration_path%>
                         </li>

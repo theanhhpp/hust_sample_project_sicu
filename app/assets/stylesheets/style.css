@@ -1,0 +1,250 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+
+
+--*/
+.main{
+	width: 100%;
+	overflow:hidden;
+}
+/*--- slider-css --*/
+.banner1{
+    background:url(1.jpg) no-repeat 0px 0px;
+    background-size:cover;
+    min-height:620px;
+}
+.banner2{
+    background:url(2.jpg) no-repeat 0px 0px;
+    background-size:cover;
+    min-height:620px;
+}
+.banner3{
+    background:url(3.jpg) no-repeat 0px 0px;
+    background-size:cover;
+    min-height:620px;
+}
+.slider {
+    position: relative;
+}
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+.rslides div.slid {
+  -webkit-backface-visibility: hidden;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+.caption1{
+    width: 100%;
+    margin-top:16em;
+}
+.caption1 {
+    text-align: center;
+    width: 50%;
+    margin: 24em auto 0;
+}
+.caption1 h3{
+    font-size: 3em;
+    text-transform: capitalize;
+    color: #fff;
+    font-family: 'ContrailOne-Regular';
+}
+.caption1 p{
+    font-size: 1.1em;
+    color: #fff;
+    line-height: 1.8em;
+    padding: 1em 0 2em;
+}
+.callbacks_tabs a:after {
+    content: "\f111";
+    font-size: 0;
+    font-family: FontAwesome;
+    visibility: visible;
+    display: block;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+     border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    background:#fff;
+    border:2px solid#fff;
+}
+.callbacks_here a:after{
+    background:#05a581;
+}
+.callbacks_tabs a{
+    visibility:hidden;
+}
+.callbacks_tabs li{
+    display:inline-block;
+    
+}
+ul.callbacks_tabs.callbacks1_tabs {
+    position: absolute;
+    bottom: 50px;
+    z-index: 999;
+    left: 47%;
+}
+a.button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+    color: #fff;
+    text-decoration: none;
+    background: #05a581;
+    text-transform: capitalize;
+}
+a.button:hover {
+    background: #fff;
+    color: #000;
+}
+.incredible {
+    padding: 4em 0;
+    text-align: center;
+}
+.incredible h3 {
+    font-size: 3em;
+    text-transform: capitalize;
+    color: #333033;
+   font-family: 'ContrailOne-Regular';
+}
+.incredible-grids {
+    margin-top: 3em;
+}
+.incredible-grid h4{
+    font-size:1.5em;
+    text-transform:capitalize;
+    margin:0.5em 0; 
+    color:#333033;
+    font-family: 'ContrailOne-Regular';
+}
+.incredible-grid p {
+    font-size: 1em;
+    line-height:1.8em;
+    color: #777;
+}
+.training {
+    padding: 0em 0 4em;
+}
+.training h3 {
+    font-size: 3em;
+    text-transform: capitalize;
+    color: #333033;
+   font-family: 'ContrailOne-Regular';
+    margin-bottom: 0.5em;
+}
+.training-grid p {
+    font-size: 1em;
+    line-height:1.8em;
+    color: #777;
+    margin-top: 1em;
+}
+.header {
+    position: relative;
+}
+.header-top {
+    position: absolute;
+    z-index: 99;
+    top: 2%;
+    left: 8%;
+  width: 84%;
+}
+
+.specials-section {
+  padding: 4em 0;
+  /*background: #222;*/
+  height: 500px;
+}
+.specials-section h3 {
+    font-size: 3em;
+    text-transform: capitalize;
+    color: #fff;
+    font-family: 'ContrailOne-Regular';
+    margin-bottom: 0.5em;
+}
+.specialsl li {
+  list-style: none;
+}
+.specials1 p {
+  font-size: 1em;
+  line-height: 2em;
+  color: #999;
+}
+.specials1 ul li{
+  list-style-type: none;
+   padding: 0.3em 0;
+}
+.specials1 p a {
+    color: #eee;
+}
+.specials1 ul li  a{
+  font-size: 0.965em;
+  text-decoration: none;
+  line-height: 1.8em;
+  color: #999;
+  list-style: none;
+  padding: 6px 24px;
+  background: url(../images/list-arrow.png) no-repeat 0px 10px;
+  text-transform: capitalize;
+}
+.specials1 ul li a:hover {
+  color:#05a581;
+}
+
+
+/** Footer **/
+.footer {
+	padding-bottom: 20px;
+	background:#1d1d1d;
+}
+.footer_sidebar {
+	color: #ffffff;
+	width: 100%;
+	padding:52px 0 42px 0;	
+	overflow:hidden;
+	background-image:url(../images/slide_bg/slide6_bg.jpg);
+	background-position:top center;
+	background-attachment:fixed;
+	background-size:cover;
+	background-repeat:no-repeat;
+	margin-bottom:30px;
+}
+
+.footer_sidebar h4.title {
+	color: #fff;
+	font-size:17px;
+	margin-bottom:15px;
+}
+.copyright {
+	padding: 12px 0 14px 0;
+	float:none;
+	text-align:center;
+	color:#dddddd;
+}
+.footer_bottom .socials {
+	float:none;
+	text-align:center
+}
+.clear {
+	clear:both;
+	height:0;
+	font-size:0;
+}
