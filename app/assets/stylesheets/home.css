@@ -1,129 +1,259 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-html {
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	-webkit-text-size-adjust:100%;
-	-ms-text-size-adjust:100%
+
+body a{
+    transition:0.5s all;
+  -webkit-transition:0.5s all;
+  -moz-transition:0.5s all;
+  -o-transition:0.5s all;
+  -ms-transition:0.5s all;
+}
+input[type="button"]{
+  transition:0.5s all;
+  -webkit-transition:0.5s all;
+  -moz-transition:0.5s all;
+  -o-transition:0.5s all;
+  -ms-transition:0.5s all;
 }
 
-body {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: lightblue;
-
+h1,h2,h3,h4,h5,h6{
+  padding:0 0;
+  margin:0 0;
 }
-
-#main{
-
-    font-family: 'Roboto Slab',serif;
-    color: white;
-    width: 100%;
+p{
+  padding:0 0;
+  margin:0 0;
 }
-
-/*header*/
-.header-menu{
-    width: 1163px;
-    margin: -16px auto;
-    height: 80px;
-    opacity: 1.5;
-    background: rgba(158, 158, 158, 0.1);
-
+ul{
+  padding:0 0;
+  margin:0 0; 
 }
-
-.menu{
-    height: 50px;
-    margin-top: 5px;
-
+body{
+  padding:0 0;
+  margin:0 0; 
+  font-family: 'OpenSans-Regular'
 }
-#icon{
-    margin-top : 30px;
-    margin-left: 20px;
-}
-
-.header-menu ul li{
-    list-style: none;
-    display: inline;
-    margin-right: 20px;
-    text-decoration: none;
-     z-index:254444444444;
-    position:relative;
-    cursor:pointer;
-
-
-}
-
-.header-menu ul{
-
- list-style:none;
- line-height:30px;
-
- }
-
- .header-menu li ul{
+/*home logo */
+.home_logo {
+  width:160px;
+  height:160px;
+  left:50%;
+  top:0;
   position:absolute;
-  display:none;
-  margin:-5px 0px;
-  padding:0;
-  top:20px;
-  left:20px;
-  cursor:pointer;
-  font-size:100%;
-  width: 300%;
-  border-radius: 5px;
-  background: rgba(158, 158, 158, 0.1);
-  z-index: 5;
-   }
-
-.header-menu ul ul li a{
-    margin-left: 10px;
-    font-size: 15px;
-   /*width: 160px !important;*/
-
-  }
- .header-menu a:hover{
-  color: deepskyblue;
-  }
- .header-menu li:hover ul,
- .header-menu li:hover ul ul	{
+  z-index:10000;
+  margin:150px 0 0 -78px;
+  overflow:hidden;
+  border-radius:50%;
+  -webkit-border-radius:50%;
+} 
+.home_logo a {
+  width:160px;
+  height:160px;
   display:block;
-  }
-
-/* posts image */
-.home-post {
-  list-style: none;
-  padding: 20px 0;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
+  border-radius:50%;
+  -webkit-border-radius:50%;
+  background-image:url(8.png);
+  background-position:0 0;
+  background-repeat:no-repeat;
+  background-size:320px 160px;
+  text-indent:-9999px;
+} 
+.home_logo a:hover {
+  background-color: red;
 }
 
-.home-post li {
-  display: inline-block;
-  margin: 0 3px 5px 0;
-  vertical-align: top;
+
+/*home logo end */
+
+.header {
+    position: relative;
+}
+.header-top {
+    position: absolute;
+    z-index: 99;
+    top: 2%;
+    left: 8%;
+  width: 84%;
 }
 
-.image {
-  outline: none;
-  display: block;
+/*Menu*/
+.navmenu{
+  margin: 0;
+  padding:12px 0 10px 0;
+  float:right;
+}
+.main-body{
+  margin-top: 50px;
+}
+/*--- slider-css --*/
+.banner1{
+  background:url(4.jpg) no-repeat 0px 0px;
+  background-size:cover;
+  min-height:600px;
+}
+.banner2{
+  background:url(2.jpg) no-repeat 0px 0px;
+  background-size:cover;
+  min-height:600px;
+}
+.banner3{
+  background:url(3.jpg) no-repeat 0px 0px;
+  background-size:cover;
+  min-height:600px;
+}
+.banner4{
+  background:url(5.jpg) no-repeat 0px 0px;
+  background-size:cover;
+  min-height:600px;
+}
+.slider {
   position: relative;
-  width: 352px;
-  height: 247px;
 }
-
-.thumbnails:hover .opacity{
-    display: block;
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+.rslides div.slid {
+  -webkit-backface-visibility: hidden;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+.caption1{
+  width: 100%;
+  margin-top:16em;
 }
-.opacity{
-  width: 352px;
-  height: 80px;
-  margin-top: -80px;
-  background: #808080;
-  display: none;
+.caption1 {
+    text-align: center;
+    width: 50%;
+    margin: 24em auto 0;
+}
+.caption1 h3{
+    font-size: 3em;
+    text-transform: capitalize;
+    color: #fff;
+    font-family: 'ContrailOne-Regular';
+}
+.caption1 p{
+  font-size: 2.1em;
+    color: #fff;
+    line-height: 1.8em;
+    padding: 1em 0 2em;
+}
+.callbacks_tabs a:after {
+  content: "\f111";
+  font-size: 0;
+  font-family: FontAwesome;
+  visibility: visible;
+  display: block;
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+     border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  background:#fff;
+  border:2px solid#fff;
+}
+.callbacks_here a:after{
+  background:#05a581;
+}
+.callbacks_tabs a{
+  visibility:hidden;
+}
+.callbacks_tabs li{
+  display:inline-block;
+  
+}
+ul.callbacks_tabs.callbacks1_tabs {
   position: absolute;
-  background: linear-gradient(to bottom, rgba(100,100,100,0), rgba(100,100,100,1));
+  bottom: 50px;
+  z-index: 999;
+  left: 47%;
 }
 
 
+.footer-section{
+  padding:2em 0;
+  text-align:center;
+  background: #05a581;
+}
+.footer-top p {
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 400;
+}
+/* about */
+#about{
+  margin-top: 0;
+  width: 100%;
+  height: 520px;
+
+}
+#about header{
+  
+  background-position:center center;
+  background-attachment:fixed;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.page_section{
+  margin-top: 0;
+  background-color: #ddd;
+}
+.page_section header {
+  color: #fff;
+  width: 100%;
+  overflow:hidden;
+  padding-top:0;
+  padding-bottom:102px; 
+}
+.page_section header div.container {
+  z-index:900;
+  position: relative;
+}
+.page_section header div.container h1 {
+  font-size: 48px;
+  padding:0 0 15px 0;
+  margin:0;
+  text-align: center;
+  color:#fff;
+  font-weight:300;
+  font-family: 'Open Sans', sans-serif;
+  line-height:52px;
+  text-transform:none;
+}
+.page_section header div.container p {
+  color:#fff;
+  font-weight:300;
+  text-align: center;
+  font-size:30px;
+  font-family: 'Open Sans', sans-serif;
+  line-height:28px;
+  padding:0 20px 10px 20px;
+  margin-bottom:0;
+}
+
+.page_section header {
+  width: 100%;
+  height: 520px;
+  padding-top:56px;
+  padding-bottom:40px;
+  background-image:url(6.jpg);
+  background-position:center center;
+  background-attachment:fixed;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
 
