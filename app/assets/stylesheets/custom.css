@@ -71,7 +71,9 @@
     /*background-color: blue;*/
     margin-top: 10px;
     margin-left: -75px;
-     color:blue;
+
+     color: white;
+
 }
 .edit-btn{
     position: absolute;
@@ -125,11 +127,11 @@
    
 }
 .image-info-posts{
-    color: #216DF3;
+
+     color: #216DF3;
     float: left;
-    margin-left: -12px;
+    margin-left: -23px;
     border-radius: 24px;
-    margin-top: 11px;
 }
 
 .polaroid-img {
@@ -139,6 +141,7 @@
 .title-posts{
     color: #216DF3;
     text-align: center;
+
     margin-top: 5px;
 }
 .title-postss{
@@ -146,6 +149,9 @@
     text-align: center;
     margin-top: 82px;
     padding-bottom: 17px;
+
+    margin-top: 82px;
+
 }
 .follow{
      color:white;
