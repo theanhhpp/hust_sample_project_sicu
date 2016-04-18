@@ -2,12 +2,17 @@
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
             <div class="thumbnail">
-                <div class="user-name">
+                <div class="avatar-icon">
+                	<%= link_to +profile_avatar_select(post.user),profile_path(post.user.user_name)%>
+                	</div>
+                 <div class="image-info-posts">
                   <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style: 'text-decoration:none;' %></b></h4>
-                </div>
+                
                 <%= time_ago_in_words post.created_at %>
+                </div>
                 <hr>
-                <h4><%= post.caption %></h4>
+                <h4 class="title-postss"><%= post.caption %></h4>
+                
                 <%=image_tag @post.image.url %>
                 <hr>
                 <div>
