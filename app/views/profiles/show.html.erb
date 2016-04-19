@@ -5,17 +5,21 @@
     <div class="info-inside-cover">
         <div class="user-name">
             <%= @user.user_name %>
+             <p class="follow"><%= pluralize @user.posts.count, 'post' %>|<%= @user.following.count %> following|<%= @user.followers.count %> followers</p>
         </div>
-        <p><span class="label label-info" style="opacity: 0.9;"><%= @user.info %></span></p>
+        <p><span class="info" style="opacity: 0.9;"><%= @user.info %></span></p>
     </div>
-    <div class="edit-btn-inside-cover">
+    <div class="edit-btn">
         <% if @user == current_user %>
             <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn btn-primary form-margin', style: 'opacity: 0.8;' %>
         <%else%>
+        
         <%= render 'follow_form' if user_signed_in? %>
         <%end%>
-        <p><%= pluralize @user.posts.count, 'post' %>|<%= @user.following.count %> following|<%= @user.followers.count %> followers</p>
+       
+       
     </div>
+   
 </div>
 <hr>
 <div class="container">
