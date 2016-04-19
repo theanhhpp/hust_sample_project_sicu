@@ -3,16 +3,22 @@ class PostsController < ApplicationController
 	 
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	before_action :owned_post, only: [:edit, :update, :destroy]
+
 	def vote
-	  value = params[:type] == "up" ? 1 : 0
-	  @post = Post.find(params[:id])
-	  if @post.add_or_update_evaluation(:votes, value, current_user)
-	  	create_notification @post
-	  	redirect_to :back, notice: "Thank you for voting"
-	  end
+		if params[:type] == "up"
+			value = 1
+			@post = Post.find(params[:id])
+			@post.add_or_update_evaluation(:votes, value, current_user)
+			create_notification_like @post
+			redirect_to :back
+		else
+			value = 0
+			@post = Post.find(params[:id])
+			@post.add_or_update_evaluation(:votes, value, current_user)
+			create_notification_dislike @post
+	 		redirect_t =:back
+		end
 	end
-
-
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
 	end 
@@ -22,6 +28,7 @@ class PostsController < ApplicationController
 	def create  
  		@post = current_user.posts.build(post_params)
 	    if @post.save
+	    	create_notification_post current_user.followers, @post
 	      redirect_to post_path(@post)
 	    else
 	      flash[:alert] = "Your new post couldn't be created!  Please check the form."
@@ -52,13 +59,30 @@ class PostsController < ApplicationController
 
 	private
 
-	def create_notification(post)  
+	def create_notification_like(post)  
 	    return if post.user.id == current_user.id 
 	    Notification.create(user_id: post.user.id,
 	                        notified_by_id: current_user.id,
 	                        post_id: post.id,
 	                        identifier: post.id,
-	                        notice_type: 'vot')
+	                        notice_type: 'liked on your post')
+	end
+	def create_notification_dislike(post)  
+	    return if post.user.id == current_user.id 
+	    Notification.create(user_id: post.user.id,
+	                        notified_by_id: current_user.id,
+	                        post_id: post.id,
+	                        identifier: post.id,
+	                        notice_type: 'disliked on your post')
+	end
+	def create_notification_post(list_follower,post) 
+		list_follower.each do |user| 
+	    	Notification.create(user_id: user.id,
+	                        notified_by_id: current_user.id,
+	                        post_id: post.id,
+	                        identifier: post.id,
+	                        notice_type: 'new post')
+	    end
 	end
 	def post_params
 	    params.require(:post).permit(:image, :caption,:tag_list)

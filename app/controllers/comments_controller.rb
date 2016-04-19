@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
 	                        notified_by_id: current_user.id,
 	                        post_id: post.id,
 	                        identifier: comment.id,
-	                        notice_type: 'comment')
+	                        notice_type: 'commented on your post')
 	end
 	def comment_params  
 	  params.require(:comment).permit(:content)
