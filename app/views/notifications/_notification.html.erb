@@ -1,5 +1,5 @@
 <li>
 	
 		<%= profile_avatar_select(notification.notified_by) %>
-		<%= link_to "#{notification.notified_by.user_name} has #{notification.notice_type}ed on your post", link_through_path(notification) %>
+		<%= link_to "#{notification.notified_by.user_name} has #{notification.notice_type}", link_through_path(notification) %>
 </li>
