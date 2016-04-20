@@ -1,7 +1,11 @@
+
 <div class="posts-show">
+
+
     <div class="container center">
         <div class="col-xs-8 col-xs-offset-2">
-            <% @posts = Post.all.order('created_at DESC')%>
+        
+
             <% @posts.each do |post| %>
                 <div class="polaroid">
                     <div class="avatar-icon">
@@ -18,8 +22,13 @@
                     <!--    <h5><b><%= post.user.user_name%></b></h5>-->
                     <!--    <%= post.caption %>-->
                     <!--</div>-->
+
                 </div>
-            <%end%>
+                <div class="flickr_pagination">
+                 <%= will_paginate @posts %>
+                    </div>
+                 <%end%>
         </div>
     </div>
 </div>
+

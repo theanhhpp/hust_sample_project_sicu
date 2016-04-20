@@ -21,6 +21,8 @@ class PostsController < ApplicationController
 	end
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
+		@posts = Post.paginate(:page => params[:page])
+
 	end 
 	def new  
   		@post = current_user.posts.build
