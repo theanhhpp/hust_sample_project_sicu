@@ -16,16 +16,18 @@
                 <%=image_tag @post.image.url %>
                 <hr>
                 <div>
-                    <%= pluralize post.reputation_for(:votes).to_i, "vote"%>
-                |   <%= link_to "", vote_post_path(post, type: "up"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-up fa-lg', method: :post %>
-                |   <%= link_to "", vote_post_path(post, type: "down"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-down fa-lg', method: :post %>
+                    <span class="vote_num">
+                        <%= pluralize post.reputation_for(:votes).to_i, "votes"%>
+                    </span>
+                |   <%= link_to "", vote_post_path(post, type: "up"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-up fa-lg', method: :post, remote: true %>
+                |   <%= link_to "", vote_post_path(post, type: "down"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-down fa-lg', method: :post, remote: true %>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
-                        <div id="comments_#{post.id}">
+                        <div id="comments_<%= post.id %>">
                             <% if post.comments %>
-                                    <%= render post.comments, post: post %>
+                                <%= render post.comments, post: post %>
                             <%end%>
                         </div>
                     </div>
