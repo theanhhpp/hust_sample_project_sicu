@@ -8,12 +8,12 @@ class CommentsController < ApplicationController
 	    if @comment.save
 	    	create_notification @post, @comment
 	    	respond_to do |format|
-	        format.html { redirect_to root_path }
-	        format.js {render inline: "location.reload();" }
-	      end
+	        	format.html { redirect_to root_path }
+	        	format.js
+	      	end
 	    else
-	      flash[:alert] = "Check the comment form, something went wrong."
-	      render root_path
+	      	flash[:alert] = "Check the comment form, something went wrong."
+	      	render root_path
 	    end
 
 	end
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 	      @comment.delete
 	      respond_to do |format|
 	        format.html { redirect_to root_path }
-	        format.js {render inline: "location.reload();" }
+	        format.js 
 	      end
 	    end
 	end
