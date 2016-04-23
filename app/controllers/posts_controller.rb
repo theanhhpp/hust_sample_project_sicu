@@ -16,11 +16,13 @@ class PostsController < ApplicationController
 			@post = Post.find(params[:id])
 			@post.add_or_update_evaluation(:votes, value, current_user)
 			create_notification_dislike @post
-	 		redirect_t =:back
+	 		redirect_t :back
 		end
 	end
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
+		@posts = Post.paginate(:page => params[:page])
+
 	end 
 	def new  
   		@post = current_user.posts.build

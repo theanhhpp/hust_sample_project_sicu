@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'acts-as-taggable-on', '~> 3.5'
 
+gem 'will_paginate', '~> 3.0.6'
+
 gem 'activerecord-reputation-system', require: 'reputation_system'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

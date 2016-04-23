@@ -1,16 +1,34 @@
+
 <div class="posts-show">
+
+
     <div class="container center">
         <div class="col-xs-8 col-xs-offset-2">
-            <% @posts = Post.all.order('created_at DESC')%>
+        
+
             <% @posts.each do |post| %>
                 <div class="polaroid">
-                    <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
-                    <div class="image-info">
-                        <h5><b><%= post.user.user_name%></b></h5>
-                        <%= post.caption %>
-                    </div>
+                    <div class="avatar-icon">
+                	<%= link_to profile_avatar_select(post.user),profile_path(post.user.user_name)%>
+                	</div>
+                 <div class="image-info-posts">
+                  <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style: 'text-decoration:none;' %></b></h4>
+                   <h4 class="title-posts"><%= post.caption %></h4>
+                <%= time_ago_in_words post.created_at %>
                 </div>
-            <%end%>
+                <hr>
+                    <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
+                    <!--<div class="image-info">-->
+                    <!--    <h5><b><%= post.user.user_name%></b></h5>-->
+                    <!--    <%= post.caption %>-->
+                    <!--</div>-->
+
+                </div>
+                <div class="flickr_pagination">
+                 <%= will_paginate @posts %>
+                    </div>
+                 <%end%>
         </div>
     </div>
 </div>
+
