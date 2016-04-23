@@ -1,4 +1,4 @@
-<div class="container center "style="margin-top: 100px">
+<div class="container center">
     <div class="col-md-8 col-md-offset-2">
         <div class="thumbnail" style="padding: 10px;">
             <%= form_image_select(@post) %>
@@ -8,7 +8,6 @@
                 <div style="margin: 15px 230px;"><%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %></div>
                 <h4>Caption</h4>
                 <%= f.text_area :caption, label: false, class: 'form-control form-margin', placeholder: 'Add your caption' %>
-               
 
                 <%= f.button :submit, class: 'btn btn-success btn-block' %>
 
