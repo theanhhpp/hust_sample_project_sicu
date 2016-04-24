@@ -16,9 +16,9 @@ module ApplicationHelper
 
 	def profile_avatar_select(user)
 	  return image_tag user.avatar.url(:medium),
-	                   id: 'image-avatar',
+	                   id: 'avatar-preview',
 	                   class: 'img-responsive avatar' if user.avatar.exists?
-	  image_tag 'default-avatar.jpg', id: 'image-avatar',
+	  image_tag 'default-avatar.jpg', id: 'avatar-preview',
 	                                  class: 'img-responsive avatar'
 	end
 
@@ -32,9 +32,9 @@ module ApplicationHelper
 
     def profile_avatar_select_sm(user)
       return image_tag user.avatar.url(:medium),
-                       id: 'image-avatar',
+                       id: 'avatar-sm-preview',
                        class: 'img-responsive avatar-sm' if user.avatar.exists?
-      image_tag 'default-avatar.jpg', id: 'image-avatar',
+      image_tag 'default-avatar.jpg', id: 'avatar-sm-preview',
                                       class: 'img-responsive avatar-sm'
     end
 
