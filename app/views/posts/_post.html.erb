@@ -17,7 +17,7 @@
                 <hr>
                 <div>
                     <span class="vote_num">
-                        <%= pluralize post.reputation_for(:votes).to_i, "votes"%>
+                        <%= pluralize post.reputation_for(:votes).to_i, "likes"%>
                     </span>
                 |   <%= link_to "", vote_post_path(post, type: "up"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-up fa-lg', method: :post, remote: true %>
                 |   <%= link_to "", vote_post_path(post, type: "down"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-down fa-lg', method: :post, remote: true %>

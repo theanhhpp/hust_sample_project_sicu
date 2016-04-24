@@ -1,5 +1,5 @@
-<li>
-	
-		<%= profile_avatar_select(notification.notified_by) %>
-		<%= link_to "#{notification.notified_by.user_name} has #{notification.notice_type}", link_through_path(notification) %>
+<li role="separator" class="divider" style="margin-top: 8px; margin-bottom: 8px;"></li>
+<li class="noti" style="width: 300px; height: 25px;">
+    <%= profile_avatar_select_sm(notification.notified_by) %>
+    <p style="padding-top: 2px;"><%= link_to "#{notification.notified_by.user_name} #{notification.notice_type}", link_through_path(notification), :style => "text-decoration: none;" %></p>
 </li>

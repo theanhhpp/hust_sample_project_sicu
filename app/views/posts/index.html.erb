@@ -1,34 +1,24 @@
-
-<div class="posts-show">
-
-
-    <div class="container center">
-        <div class="col-xs-8 col-xs-offset-2">
-        
-
-            <% @posts.each do |post| %>
-                <div class="polaroid">
-                    <div class="avatar-icon">
-                	<%= link_to profile_avatar_select(post.user),profile_path(post.user.user_name)%>
-                	</div>
-                 <div class="image-info-posts">
-                  <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style: 'text-decoration:none;' %></b></h4>
-                   <h4 class="title-posts"><%= post.caption %></h4>
-                <%= time_ago_in_words post.created_at %>
+<div class="container">
+    <div class="col-xs-8 col-xs-offset-2" style="padding: 0px;">
+        <% if @posts.present? %>
+           <% @posts.each do |post| %>
+            <div class="polaroid">
+                <div class="polaroid-heading">
+                    <%= link_to profile_avatar_select(post.user), profile_path(post.user.user_name)%>
+                    <p><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style:'text-decoration:none; color: black;' %></b> <span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words post.created_at %> ago</p>
+                    <p><%= post.caption %></p>
                 </div>
-                <hr>
-                    <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
-                    <!--<div class="image-info">-->
-                    <!--    <h5><b><%= post.user.user_name%></b></h5>-->
-                    <!--    <%= post.caption %>-->
-                    <!--</div>-->
-
+                <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
+                <div class="statistic-opacity" style="text-align: center; color: white;">
+                    <p style="margin-top: 70px;"><%= post.reputation_for(:votes).to_i %> <span class="glyphicon glyphicon-heart"></span> <%= post.comments.count %> <span class="glyphicon glyphicon-comment"></span></p>
                 </div>
-                <div class="flickr_pagination">
-                 <%= will_paginate @posts %>
-                    </div>
-                 <%end%>
+            </div>
+            <%end%>
+        <% else %>
+          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+        <% end %>
+        <div class="flickr_pagination">
+            <%= will_paginate @posts %>
         </div>
     </div>
 </div>
-
