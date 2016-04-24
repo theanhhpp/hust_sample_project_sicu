@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 			@post = Post.find(params[:id])
 			@post.add_or_update_evaluation(:votes, value, current_user)
 			create_notification_dislike @post
+	 		
 		end
 		respond_to do |format|
 			format.html { redirect_to root_path }

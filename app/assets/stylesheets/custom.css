@@ -39,7 +39,7 @@
 }
 
 .adjust-image {
-    margin: 0.3vw 0.1vw;
+    margin: auto;
     width: 25vw;
     height: 25vw;
     overflow: hidden;
@@ -50,9 +50,9 @@
     display: block;
 }
 
-.comment-hover:hover {
+/*.comment-hover:hover {
     background-color: rgb(230,230,230);
-}
+}*/
 
 .glyphicon-remove {
     display: none;
@@ -137,4 +137,20 @@
 .noti-dropdown {
     height: 50px;
     background-color: #222;
+}
+
+.statistic-opacity-profiles {
+    width: 25vw;
+    height: 6vw;
+    position: absolute;
+    margin-top: -6vw;
+    background: linear-gradient(to bottom, rgba(100,100,100,0), rgba(100,100,100,0.9));
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.image-profiles:hover .statistic-opacity-profiles {
+    display: block;
+    opacity: 1;
+    transition: 0.5s;
 }
