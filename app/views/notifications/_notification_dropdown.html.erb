@@ -3,8 +3,8 @@
         <span class="fa fa-bell fa-2x" aria-hidden="true"></span>
         <%= current_user.notifications.where(read: false).count %>
     </a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-        <li style="text-align: center;">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-height: 325px; overflow: hidden;">
+        <li style="text-align: center; height: 15px;">
             Notifications
         </li>
         <%= render current_user.notifications.where(read: false).order('created_at DESC') %>
