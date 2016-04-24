@@ -22,6 +22,9 @@ class PostsController < ApplicationController
 			format.js
 	    end
 	end
+	def feeds
+		@posts = current_user.feed.paginate(:page => params[:page])
+	end
 	
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
