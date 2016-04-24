@@ -16,6 +16,9 @@
                 <%=image_tag @post.image.url %>
                 <hr>
                 <div>
+                <%@post.evaluators_for(:votes).each do |liker|%>
+                    <%= link_to liker.user_name, profile_path(liker.user_name) %>
+                <%end%>
                     <span class="vote_num">
                         <%= pluralize post.reputation_for(:votes).to_i, "likes"%>
                     </span>
