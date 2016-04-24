@@ -23,12 +23,18 @@ class PostsController < ApplicationController
 	end
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
-		if params[:tag]
-			@posts=Post.tagged_with(params[:tag])
-			
-		else
-		@posts = Post.paginate(:page => params[:page])
-	end
+		# if params[:tag]
+		# 	@posts=Post.tagged_with(params[:tag])
+		# else
+		# @posts = Post.paginate(:page => params[:page])
+		# end
+		@posts = Post.all
+		  if params[:search]
+		    @posts = Post.search(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+		  else
+		    @posts = Post.all.order('created_at DESC').paginate(:page => params[:page])
+		  end
+	
 
 	end 
 	def new  
