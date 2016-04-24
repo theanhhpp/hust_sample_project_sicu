@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <%= link_to root_path do%>
-                <a class="navbar-brand" href="/">SICU</a>
+                    <a class="navbar-brand" href="/">SICU</a>
                 <% end %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,18 +19,18 @@
                         <li>
                             <%= link_to "Hi, "+current_user.user_name, profile_path(current_user.user_name) %>
                         </li>
+                        <li>
+                            <%= link_to "News Feed", feeds_path%>
+                        </li>
                     <% end %>
                     <li>
                         <%= link_to "Explore", posts_path%>
                     </li>
-                    <li>
-                        <%= link_to "Feeds", feeds_path%>
-                    </li>
                     <form class="navbar-form navbar-right">
-                    <%= form_tag(root_path, :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :search, params[:search], placeholder: "Search Posts", :class => "form-control" %>
-                    <%= submit_tag "Search", :class => "btn btn-default" %>
-                    <%end%>
+                        <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+                        <%= text_field_tag :search, params[:search], placeholder: "Search Posts", :class => "form-control" %>
+                        <%= submit_tag "Search", :class => "btn btn-default" %>
+                        <%end%>
                     </form>
                 </ul>
                 <% if user_signed_in? %>
