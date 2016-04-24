@@ -22,10 +22,15 @@
     </div>
 </div>
 <hr>
-<div class="container" style="width: 80vw; margin: 0px auto 40px; padding: auto;">
+<div class="container" style="width: 80vw; margin: 0 auto 10vh; padding: auto;">
     <div class="row">
         <% @posts.each do |post| %>
-    		<%=link_to (image_tag post.image.url(:medium), class:'adjust-image'),post_path(post) %>
+            <div class="image-profiles" style="float: left;">
+        		<%=link_to (image_tag post.image.url(:medium), class:'adjust-image'),post_path(post) %>
+                <div class="statistic-opacity-profiles" style="text-align: center; color: white;">
+                    <p style="margin-top: 3.5vw;"><%= post.reputation_for(:votes).to_i %> <span class="glyphicon glyphicon-heart"></span> <%= post.comments.count %> <span class="glyphicon glyphicon-comment"></span></p>
+                </div>
+            </div>
         <%end%>
     </div>
 </div>
