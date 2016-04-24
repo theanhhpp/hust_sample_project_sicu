@@ -24,7 +24,7 @@ module ApplicationHelper
       return image_tag user.avatar.url(:medium),
                        id: 'image-avatar',
                        class: 'img-responsive avatar-md' if user.avatar.exists?
-      image_tag 'default-avatar.jpg', id: 'image-preview',
+      image_tag 'default-avatar.jpg', id: 'image-avatar',
                                       class: 'img-responsive avatar-md'
     end
 
