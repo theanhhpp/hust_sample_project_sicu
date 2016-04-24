@@ -1,6 +1,7 @@
 <div class="container">
     <div class="col-xs-8 col-xs-offset-2" style="padding: 0px;">
-        <% @posts.each do |post| %>
+        <% if @posts.present? %>
+           <% @posts.each do |post| %>
             <div class="polaroid">
                 <div class="polaroid-heading">
                     <%= link_to profile_avatar_select(post.user), profile_path(post.user.user_name)%>
@@ -12,7 +13,10 @@
                     <p style="margin-top: 70px;"><%= post.reputation_for(:votes).to_i %> <span class="glyphicon glyphicon-heart"></span> <%= post.comments.count %> <span class="glyphicon glyphicon-comment"></span></p>
                 </div>
             </div>
-        <%end%>
+            <%end%>
+        <% else %>
+          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+        <% end %>
         <div class="flickr_pagination">
             <%= will_paginate @posts %>
         </div>

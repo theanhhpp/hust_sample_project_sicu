@@ -17,10 +17,6 @@ class Post < ActiveRecord::Base
 	has_reputation :votes, source: :user, aggregated_by: :sum
 	
 	def self.search(search)
-	  if search
-	    find(:all, :conditions => ['caption LIKE ?', "%#{search}%"])
-	  else
-	    find(:all)
-	  end
+	  where("caption LIKE ?", "%#{search}%")
 	end
 end

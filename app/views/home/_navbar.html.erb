@@ -46,11 +46,9 @@
                         </ul>
                     <% end %>
                 <form class="navbar-form navbar-right">
-                    <%= form_tag posts_path, :method => 'get' do %>
-                      <p>
-                        <%= text_field_tag :search, params[:search], class: 'form-control' %>
-                        <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
-                      </p>
+                    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+                    <%= submit_tag "Search" %>
                     <% end %>
                 </form>
             </div>
