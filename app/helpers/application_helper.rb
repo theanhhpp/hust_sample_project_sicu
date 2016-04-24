@@ -20,6 +20,14 @@ module ApplicationHelper
 	                                  class: 'img-responsive avatar'
 	end
 
+    def profile_avatar_select_md(user)
+      return image_tag user.avatar.url(:medium),
+                       id: 'image-preview',
+                       class: 'img-responsive avatar-md' if user.avatar.exists?
+      image_tag 'default-avatar.jpg', id: 'image-preview',
+                                      class: 'img-responsive avatar-md'
+    end
+
     def profile_avatar_select_sm(user)
       return image_tag user.avatar.url(:medium),
                        id: 'image-preview',
