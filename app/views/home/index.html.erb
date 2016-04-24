@@ -1,97 +1,76 @@
+<div class="header">
+    <script>
+        $(function () {
+          $("#slider").responsiveSlides({
+            auto:true,
+            nav: false,
+            speed: 500,
+            namespace: "callbacks",
+            pager: false,
+          });
+        });
 
-<div class="main-body">
-    <div class="header">
-
-        <script>
-            $(function () {
-              $("#slider").responsiveSlides({
-                auto:true,
-                nav: false,
-                speed: 500,
-                namespace: "callbacks",
-                pager: false,
-              });
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
             });
+        });
+    </script>
 
-            $(function() {
-                $('a.page-scroll').bind('click', function(event) {
-                    var $anchor = $(this);
-                    $('html, body').stop().animate({
-                        scrollTop: $($anchor.attr('href')).offset().top
-                    }, 1500, 'easeInOutExpo');
-                    event.preventDefault();
-                });
-            });
-            
-        </script>
-        <div class="slider">
-            <div class="callbacks_container">
-                <ul class="rslides" id="slider">
-                    
-                    <div class="slid banner1">
-
-                        <div class="caption1">
-                            <div class="home_logo">
-                                <a href="#about" class="page-scroll">SICU</a>
-                            </div>
-                            <h3>WELCOME TO OUR WEBSITE</h3>
-                            <p>Where to satisfy your passion</p>
-                            
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="slid banner2"> 
-                        <div class="caption1">
-                            <div class="home_logo">
-                                <a href="#about" class="page-scroll">SICU</a>
-                            </div>
-                            <h3>KEEP YOUR MOVING!</h3>
-                            <p>Do Everything To Be The First</p>
-                            
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="slid banner3">  
-                        <div class="caption1">
-                            <div class="home_logo">
-                                <a href="#about"class="page-scroll">SICU</a>
-                            </div>
-                            <h3>SHARE YOUR PASSION</h3>
-                            <p>Do Everything To Be The First</p>
-                            
-                        </div>
-                        
-                    </div>
-                        
-                    <div class="slid banner4">
+    <div class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <div class="slid banner1">
+                    <div class="caption1">
                         <div class="home_logo">
-                                <a href="#about" class="page-scroll">SICU</a>
-                            </div>  
-                        <div class="caption1">
-                            <h3>LET'S START WITH OUR!</h3>
-                            <p>Do Everything To Be The First</p>   
+                            <a href="#about" class="page-scroll">SICU</a>
                         </div>
-                        
+                        <h3>WELCOME TO OUR WORLD</h3>
+                        <p>Satisfy Your Passion</p>
                     </div>
-                </ul>
-           
-    <!-- about content-->
-    <div class="page_section" id="about">
-        <header>
-            <div class="container" data-animated="fadeInUp">
-                <h1>About Website</h1>
-                <p>House for all your pictures</p>
+                </div>
+                <div class="slid banner2">
+                    <div class="caption1">
+                        <div class="home_logo">
+                            <a href="#about" class="page-scroll">SICU</a>
+                        </div>
+                        <h3>KEEP YOUR MOVING</h3>
+                        <p>Do Everything To Be The First</p>
+                    </div>
+                </div>
+                <div class="slid banner3">
+                    <div class="caption1">
+                        <div class="home_logo">
+                            <a href="#about"class="page-scroll">SICU</a>
+                        </div>
+                        <h3>SHARE YOUR PASSION</h3>
+                        <p>Do Everything To Be The First</p>
+                    </div>
+                </div>
+                <div class="slid banner4">
+                    <div class="home_logo">
+                            <a href="#about" class="page-scroll">SICU</a>
+                        </div>
+                    <div class="caption1">
+                        <h3>LET'S START WITH US</h3>
+                        <p>Do Everything To Be The First</p>
+                    </div>
+                </div>
+            </ul>
+
+            <!-- about content-->
+            <div class="page_section" id="about">
+                <header>
+                    <div class="container" data-animated="fadeInUp">
+                        <h1>About Website</h1>
+                        <p>House for all your pictures</p>
+                    </div>
+                </header>
             </div>
-        </header>
-    </div>
-</div>
- <!--footer-->
-<div class="footer-section">
-    <div class="container">
-        <div class="footer-top">
-            <p>Design by SICU team</p>
         </div>
     </div>
 </div>

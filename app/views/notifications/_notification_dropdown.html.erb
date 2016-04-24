@@ -1,17 +1,12 @@
-<div class="dropdown">
-    <a id="dLabel" role="button" data-toggle="dropdown" >
+<li class="dropdown">
+    <a class="noti-dropdown" id="dLabel" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="fa fa-bell fa-2x" aria-hidden="true"></span>
         <%= current_user.notifications.where(read: false).count %>
-        <i class="glyphicon glyphicon-bell"></i>
     </a>
-    <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
-    
-        <div class="notification-heading"><h4 class="menu-title">Notifications</h4>
-        </div>
-        
-        <div class="notifications-wrapper">
-            <%= render current_user.notifications.where(read: false).order('created_at DESC') %>
-        </div>
-    
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li style="text-align: center;">
+            Notifications
+        </li>
+        <%= render current_user.notifications.where(read: false).order('created_at DESC') %>
     </ul>
-  
-</div>
+</li>
