@@ -6,7 +6,6 @@
         <div class="user-name">
             <h2 style="color: white;"><%= @user.user_name %></h2>
         </div>
-        <p><span class="label label-info" style="opacity: 0.8;"><%= @user.info %></span></p>
         <div>
             <% if @user == current_user %>
                 <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-primary form-margin', style: 'opacity: 0.8;' %>
@@ -14,11 +13,12 @@
                 <%= render 'follow_form' if user_signed_in? %>
             <%end%>
         </div>
-        <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group form-margin" role="group" aria-label="..." style="opacity: 0.8;">
             <button type="button" class="btn btn-default"><span class="badge"><%= @user.posts.count %></span> posts</button>
             <button type="button" class="btn btn-default"><span class="badge"><%= @user.following.count %></span> following</button>
             <button type="button" class="btn btn-default"><span class="badge"><%= @user.followers.count %></span> followers</button>
         </div>
+        <p><span class="label label-info"><%= @user.info %></span></p>
     </div>
 </div>
 <hr>

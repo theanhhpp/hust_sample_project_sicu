@@ -4,7 +4,7 @@
 }
 
 .form-margin {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .user-name{
@@ -99,7 +99,11 @@
 }
 
 .polaroid {
-    transition: 0.5s;
+    transition: 0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
     border: 1px solid lightgray;
     margin-top: 50px;
 }
@@ -110,7 +114,7 @@
 }
 
 .polaroid:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 6px rgba(35, 173, 278, 1);
 }
 
 .statistic-opacity {
@@ -120,13 +124,21 @@
     margin-top: -100px;
     background: linear-gradient(to bottom, rgba(100,100,100,0), rgba(100,100,100,0.9));
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
 }
 
 .polaroid:hover .statistic-opacity {
     display: block;
     opacity: 1;
-    transition: 0.5s;
+    transition: 0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
 }
 
 .polaroid-img {
@@ -146,11 +158,19 @@
     margin-top: -6vw;
     background: linear-gradient(to bottom, rgba(100,100,100,0), rgba(100,100,100,0.9));
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
 }
 
 .image-profiles:hover .statistic-opacity-profiles {
     display: block;
     opacity: 1;
-    transition: 0.5s;
+    transition: 0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
 }
