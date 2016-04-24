@@ -23,8 +23,11 @@
                     <li>
                         <%= link_to "Explore", posts_path%>
                     </li>
+                    <li>
+                        <%= link_to "Feeds", feeds_path%>
+                    </li>
                     <form class="navbar-form navbar-right">
-                    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                    <%= form_tag(root_path, :method => "get", id: "search-form") do %>
                     <%= text_field_tag :search, params[:search], placeholder: "Search Posts", :class => "form-control" %>
                     <%= submit_tag "Search", :class => "btn btn-default" %>
                     <%end%>
