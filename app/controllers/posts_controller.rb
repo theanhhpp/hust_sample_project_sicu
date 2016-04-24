@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 			format.js
 	    end
 	end
+	
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
 		# if params[:tag]
