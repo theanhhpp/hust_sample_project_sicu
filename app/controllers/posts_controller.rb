@@ -15,20 +15,31 @@ class PostsController < ApplicationController
 			@post = Post.find(params[:id])
 			@post.add_or_update_evaluation(:votes, value, current_user)
 			create_notification_dislike @post
+	 		
 		end
 		respond_to do |format|
 			format.html { redirect_to root_path }
 			format.js
 	    end
 	end
+	def feeds
+		@posts = current_user.feed.paginate(:page => params[:page])
+	end
+	
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
-		if params[:tag]
-			@posts=Post.tagged_with(params[:tag])
-			
-		else
-		@posts = Post.paginate(:page => params[:page])
-	end
+		# if params[:tag]
+		# 	@posts=Post.tagged_with(params[:tag])
+		# else
+		# @posts = Post.paginate(:page => params[:page])
+		# end
+		@posts = Post.all
+		  if params[:search]
+		    @posts = Post.search(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+		  else
+		    @posts = Post.all.order('created_at DESC').paginate(:page => params[:page])
+		  end
+	
 
 	end 
 	def new  

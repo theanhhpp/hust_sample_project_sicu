@@ -3,6 +3,7 @@ Rails.application.routes.draw do
                                         as: :link_through
 
   get 'posts', to: 'posts#index' , as: :posts   #get all post
+  get 'feeds' => 'posts#feeds'
 
   get 'profiles/show'
   devise_for :users, :controllers => { registrations: 'registrations' } 

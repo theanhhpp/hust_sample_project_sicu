@@ -1,32 +1,35 @@
 <div class="jumbotron cover-photo">
     <div class="avatar-inside-cover">
-    	<%= profile_avatar_select(@user) %>
+    	<%= profile_avatar_select_profiles(@user) %>
     </div>
     <div class="info-inside-cover">
         <div class="user-name">
-            <%= @user.user_name %>
-             <p class="follow"><%= pluralize @user.posts.count, 'post' %>|<%= @user.following.count %> following|<%= @user.followers.count %> followers</p>
+            <h2 style="color: white;"><%= @user.user_name %></h2>
         </div>
-        <p><span class="info" style="opacity: 0.9;"><%= @user.info %></span></p>
+        <div>
+            <% if @user == current_user %>
+                <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-primary form-margin', style: 'opacity: 0.8;' %>
+            <%else%>
+                <%= render 'follow_form' if user_signed_in? %>
+            <%end%>
+        </div>
+        <div class="btn-group form-margin" role="group" aria-label="..." style="opacity: 0.8;">
+            <button type="button" class="btn btn-default"><span class="badge"><%= @user.posts.count %></span> posts</button>
+            <button type="button" class="btn btn-default"><span class="badge"><%= @user.following.count %></span> following</button>
+            <button type="button" class="btn btn-default"><span class="badge"><%= @user.followers.count %></span> followers</button>
+        </div>
+        <p><span class="label label-info"><%= @user.info %></span></p>
     </div>
-    <div class="edit-btn">
-        <% if @user == current_user %>
-            <%= link_to 'Edit Profile', edit_profile_path(@user.user_name),class: 'btn btn-primary form-margin', style: 'opacity: 0.8;' %>
-        <%else%>
-        
-        <%= render 'follow_form' if user_signed_in? %>
-        <%end%>
-       
-       
-    </div>
-   
 </div>
-<hr>
-<div class="container">
+<hr style="border-color: #cccccc; border-width: 1px;">
+<div class="container" style="width: 80vw; margin: 0 auto 10vh; padding: auto;">
     <div class="row">
         <% @posts.each do |post| %>
-            <div class="col-xs-4">
-        		<%=link_to (image_tag post.image.url(:medium), class:'thumbnail adjust-image'),post_path(post) %>
+            <div class="image-profiles" style="float: left;">
+        		<%=link_to (image_tag post.image.url(:medium), class:'adjust-image'),post_path(post) %>
+                <div class="statistic-opacity-profiles" style="text-align: center; color: white;">
+                    <p style="margin-top: 3.5vw;"><%= post.reputation_for(:votes).to_i %> <span class="glyphicon glyphicon-heart"></span> <%= post.comments.count %> <span class="glyphicon glyphicon-comment"></span></p>
+                </div>
             </div>
         <%end%>
     </div>

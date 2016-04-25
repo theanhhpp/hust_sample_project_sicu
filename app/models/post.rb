@@ -15,12 +15,11 @@ class Post < ActiveRecord::Base
 
 	acts_as_taggable
 	has_reputation :votes, source: :user, aggregated_by: :sum
-	
+	def user_name
+		self.user.user_name
+	end
+
 	def self.search(search)
-	  if search
-	    find(:all, :conditions => ['caption LIKE ?', "%#{search}%"])
-	  else
-	    find(:all)
-	  end
+	  where("caption LIKE ?", "%#{search}%")
 	end
 end

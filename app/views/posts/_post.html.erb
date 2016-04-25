@@ -1,23 +1,22 @@
-<div class="container center">
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
             <div class="thumbnail">
-                <div class="avatar-icon">
+                <div class="avatar-icon" style="margin: 15px;">
                 	<%= link_to profile_avatar_select(post.user),profile_path(post.user.user_name)%>
-                	</div>
-                 <div class="image-info-posts">
-                  <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style: 'text-decoration:none;' %></b></h4>
-                
-                <%= time_ago_in_words post.created_at %>
+            	</div>
+                <div style="text-align: left; margin-left: 80px;">
+                    <h4><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style: 'text-decoration:none;' %></b> <%= post.caption %> </h4>
+                    <span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words post.created_at %>
                 </div>
                 <hr>
-
-                <h4 class="title-postss"><%= post.caption %></h4>
                 <%=image_tag @post.image.url %>
                 <hr>
                 <div>
+                <%@post.evaluators_for(:votes).each do |liker|%>
+                    <%= link_to liker.user_name, profile_path(liker.user_name) %>
+                <%end%>
                     <span class="vote_num">
-                        <%= pluralize post.reputation_for(:votes).to_i, "votes"%>
+                        <%= pluralize post.reputation_for(:votes).to_i, "likes"%>
                     </span>
                 |   <%= link_to "", vote_post_path(post, type: "up"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-up fa-lg', method: :post, remote: true %>
                 |   <%= link_to "", vote_post_path(post, type: "down"), style: 'text-decoration:none;', class: 'glyphicon glyphicon-thumbs-down fa-lg', method: :post, remote: true %>
@@ -36,14 +35,13 @@
                 <div class="row">
                     <%= form_for([post, post.comments.build], remote: true) do |f| %>
                     <div class="col-xs-8 col-xs-offset-1">
-                        <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
+                        <%= f.text_area :content, rows: 1, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
                     </div>
                     <div class="col-xs-2">
-                        <%= f.submit "Comment", class: 'btn btn-success btn-lg btn-block' %>
+                        <%= f.submit "Comment", class: 'btn btn-success btn-block' %>
                     </div>
                     <%end%>
                 </div>
             </div>
         </div>
     </div>
-</div>

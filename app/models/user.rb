@@ -26,6 +26,13 @@ class User < ActiveRecord::Base
   	def following?(other_user)
     	following.include?(other_user)
   	end
+
+    def feed
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Post.where("user_id IN (#{following_ids})", user_id: id)
+  end
+
 	
 	has_attached_file :avatar, styles: { medium: '152x152#' }  
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
