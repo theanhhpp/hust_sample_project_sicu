@@ -1,17 +1,14 @@
 <div class="container center">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="thumbnail" style="padding: 10px;">
+    <div class="thumbnail col-xs-8 col-xs-offset-2" style="padding: 10px;">
             <%= form_image_select(@post) %>
             <%= simple_form_for @post, html: { multipart: true } do |f| %>
                 <%= f.error_notification  %>
                 <h4> Upload an image (this is required): </h4>
-                <div style="margin: 15px 230px;"><%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %></div>
+                <div class="col-xs-8 col-xs-offset-4"><%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %></div>
                 <h4>Caption</h4>
-                <%= f.text_area :caption, label: false, class: 'form-control form-margin', placeholder: 'Add your caption' %>
-
+                <%= f.text_area :caption, rows: 1, label: false, class: 'form-control form-margin', placeholder: 'Add your caption' %>
                 <%= f.button :submit, class: 'btn btn-success btn-block' %>
 
             <% end %>
-        </div>
     </div>
 </div>

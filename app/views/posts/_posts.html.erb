@@ -1,13 +1,13 @@
 <% @posts.each do |post| %>
-            <div class="polaroid">
-                <div class="polaroid-heading">
-                    <%= link_to profile_avatar_select(post.user), profile_path(post.user.user_name)%>
-                    <p><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style:'text-decoration:none; color: black;' %></b> <span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words post.created_at %> ago</p>
-                    <p><%= post.caption %></p>
-                </div>
-                <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
-                <div class="statistic-opacity" style="text-align: center; color: white;">
-                    <p style="margin-top: 70px;"><%= post.reputation_for(:votes).to_i %> <span class="glyphicon glyphicon-heart"></span> <%= post.comments.count %> <span class="glyphicon glyphicon-comment"></span></p>
-                </div>
-            </div>
-            <%end%>
+    <div class="polaroid">
+        <div class="polaroid-heading">
+            <%= link_to profile_avatar_select(post.user), profile_path(post.user.user_name)%>
+            <p><b><%= link_to post.user.user_name, profile_path(post.user.user_name), style:'text-decoration:none; color: black;' %></b> <span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words post.created_at %> ago</p>
+            <p><%= post.caption %></p>
+        </div>
+        <%=link_to (image_tag post.image.url, class:'polaroid-img img-responsive'),post_path(post) %>
+        <div class="statistic-opacity" style="text-align: center; color: white;">
+            <p style="margin-top: 70px;"><%= post.reputation_for(:votes).to_i %> <span class="glyphicon glyphicon-heart"></span> <%= post.comments.count %> <span class="glyphicon glyphicon-comment"></span></p>
+        </div>
+    </div>
+<%end%>

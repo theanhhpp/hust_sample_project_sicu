@@ -35,10 +35,10 @@
                 <div class="row">
                     <%= form_for([post, post.comments.build], remote: true) do |f| %>
                     <div class="col-xs-8 col-xs-offset-1">
-                        <%= f.text_area :content, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
+                        <%= f.text_area :content, rows: 1, placeholder: 'Add a comment...', class: 'form-control form-margin', id: "comment_content_#{post.id}" %>
                     </div>
                     <div class="col-xs-2">
-                        <%= f.submit "Comment", class: 'btn btn-success btn-lg btn-block' %>
+                        <%= f.submit "Comment", class: 'btn btn-success btn-block' %>
                     </div>
                     <%end%>
                 </div>
