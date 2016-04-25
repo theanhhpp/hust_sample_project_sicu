@@ -35,9 +35,9 @@ class PostsController < ApplicationController
 		# end
 		@posts = Post.all
 		  if params[:search]
-		    @posts = Post.search(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+		    @posts = Post.search(params[:search]).order("created_at DESC").paginate(:page => params[:page]).popular
 		  else
-		    @posts = Post.all.order('created_at DESC').paginate(:page => params[:page])
+		    @posts = Post.paginate(:page => params[:page]).popular
 		  end
 	
 
