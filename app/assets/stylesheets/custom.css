@@ -111,6 +111,7 @@
 .polaroid-heading {
     padding: 15px;
     min-height: 80px;
+    background-color: #f4f4f4;
 }
 
 .polaroid:hover {
@@ -146,11 +147,6 @@
     min-height: 100px;
 }
 
-.noti-dropdown {
-    height: 50px;
-    background-color: #222;
-}
-
 .statistic-opacity-profiles {
     width: 25vw;
     height: 6vw;
@@ -173,4 +169,9 @@
     -moz-transition:0.5s all;
     -o-transition:0.5s all;
     -ms-transition:0.5s all;
+}
+
+.noti-dropdown {
+    height: 50px;
+    background-color: #222;
 }
