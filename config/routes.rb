@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'posts', to: 'posts#index' , as: :posts   #get all post
   get 'feeds' => 'posts#feeds'
-
+  get 'top_posts' => 'posts#top_posts'
   get 'profiles/show'
   devise_for :users, :controllers => { registrations: 'registrations' } 
   root 'home#index'

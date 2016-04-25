@@ -25,6 +25,9 @@ class PostsController < ApplicationController
 	def feeds
 		@posts = current_user.feed.paginate(:page => params[:page])
 	end
+	def top_posts
+		@posts = Post.paginate(:page => params[:page]).popular
+	end
 	
 	def index  
 		#@posts = Post.search(params[:search]).page params[:page]
@@ -35,9 +38,9 @@ class PostsController < ApplicationController
 		# end
 		@posts = Post.all
 		  if params[:search]
-		    @posts = Post.search(params[:search]).order("created_at DESC").paginate(:page => params[:page]).popular
+		    @posts = Post.search(params[:search]).paginate(:page => params[:page]).popular
 		  else
-		    @posts = Post.paginate(:page => params[:page]).popular
+		    @posts = Post.all.order("created_at DESC").paginate(:page => params[:page])
 		  end
 	
 
