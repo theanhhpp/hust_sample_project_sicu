@@ -3,7 +3,7 @@
         <% if @posts.present? %>
            <%= render 'posts'%>
         <% else %>
-          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+          <div class="jumbotron"> <h1 class="center">No feeds post</h1> </div>
         <% end %>
         <div class="flickr_pagination">
             <%= will_paginate @posts %>
