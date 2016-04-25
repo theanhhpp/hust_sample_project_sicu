@@ -1,6 +1,7 @@
 html {
     position: relative;
     min-height: 100%;
+    min-width: 900px;
 }
 
 body a{
@@ -19,16 +20,18 @@ input{
 }
 
 body{
+    background-color: #e6e6e6;
     margin-top: 6vh;
     font-family: Tahoma, Geneva, sans-serif;
     margin-bottom: 6vh;
 }
 
-nav {
+.navbar {
     height: 6vh;
 }
 
 #dLabel {
+    background-color: #222;
     padding: 1.5vh;
 }
 
