@@ -23,6 +23,19 @@
                     <li>
                         <%= link_to "Explore", posts_path%>
                     </li>
+                    <li>
+                        <%= link_to "Top posts", top_posts_path%>
+                    </li>
+                    <% if user_signed_in? %>
+                    <li>
+                        <%= link_to "Feeds", feeds_path%>
+                    </li>
+                    <% end %>
+                    <form class="navbar-form navbar-right">
+                    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Search Posts", :class => "form-control" %>
+                    <%= submit_tag "Search", :class => "btn btn-default", :name => nil%>
+                    <%end%>
                     <form class="navbar-form navbar-right">
                         <%= form_tag(root_path, :method => "get", id: "search-form") do %>
                         <%= text_field_tag :search, params[:search], placeholder: "Search Posts", :class => "form-control" %>

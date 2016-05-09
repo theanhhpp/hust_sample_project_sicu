@@ -15,6 +15,12 @@ class Post < ActiveRecord::Base
 
 	acts_as_taggable
 	has_reputation :votes, source: :user, aggregated_by: :sum
+	def self.popular
+	  reorder('votes desc').find_with_reputation(:votes, :all)
+	end
+	def votes
+	  read_attribute(:votes) || post_votes.sum(:value)
+	end
 	def user_name
 		self.user.user_name
 	end
